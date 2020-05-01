@@ -179,11 +179,23 @@
             <ul>
               
                 <li>
-                  <a href="#mail.MailReq"><span class="badge">M</span>MailReq</a>
+                  <a href="#mail.Mail"><span class="badge">M</span>Mail</a>
                 </li>
               
                 <li>
-                  <a href="#mail.MailRes"><span class="badge">M</span>MailRes</a>
+                  <a href="#mail.MailBox"><span class="badge">M</span>MailBox</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.SendMailReq"><span class="badge">M</span>SendMailReq</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.SendMailRes"><span class="badge">M</span>SendMailRes</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.UserMailBox"><span class="badge">M</span>UserMailBox</a>
                 </li>
               
               
@@ -205,11 +217,11 @@
       <div class="file-heading">
         <h2 id="services/mail/service.proto">services/mail/service.proto</h2><a href="#title">Top</a>
       </div>
-      <p>Created on Sun Apr 28 2020</p><p>Mail entity related messages.</p><p>This file is resposible for all operation related to mail entity.</p><p>@authors nirajgeorgian@oojob.io (Niraj Kishore)</p><p>Copyright (c) 2020 - oojob</p>
+      <p>Created on Sun Apr 28 2020</p><p>Mail entity related messages.</p><p>This file is resposible for all operation related to mail entity.</p><p>@author nirajgeorgian@oojob.io (Niraj Kishore)</p><p>@author dibyarupajena@gmail.com (Dibyarupa Jena)</p><p>Copyright (c) 2020 - oojob</p>
 
       
-        <h3 id="mail.MailReq">MailReq</h3>
-        <p></p>
+        <h3 id="mail.Mail">Mail</h3>
+        <p>Mail help's us to store one mail entity for future conversation refrence</p>
 
         
           <table class="field-table">
@@ -222,35 +234,64 @@
                   <td>from</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>MailReq from :- from whose account the mail should be send.
+/ default&#39;s to: admin@oojob.io
+/ example values: abcapplied@gmail.com </p></td>
                 </tr>
               
                 <tr>
                   <td>to</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>MailReq to :- to whom the mail should be sent
+/ For Eaxmple: dododuck@gmail.com </p></td>
                 </tr>
               
                 <tr>
                   <td>subject</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>MailReq subject :- your mail subject </p></td>
                 </tr>
               
                 <tr>
                   <td>message</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>MailReq message :- your mail body message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>attachments</td>
+                  <td><a href="#github.com.oojob.protobuf.Attachment">github.com.oojob.protobuf.Attachment</a></td>
+                  <td>repeated</td>
+                  <td><p>all the attachment needed to send for ex: PDF or an image </p></td>
+                </tr>
+              
+                <tr>
+                  <td>variable</td>
+                  <td><a href="#google.protobuf.Struct">google.protobuf.Struct</a></td>
+                  <td></td>
+                  <td><p>your variable&#39;s used for message construction based on template creation </p></td>
                 </tr>
               
                 <tr>
                   <td>template</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>MailReq template :- choose which template to attach with this mail
+/ data let&#39;s suppose we have 5 type&#39;s of mail template 1: for applying
+/ job 2: for company creation so this will take a value what type of
+/ template we have to choose to send the data
+/ default to oojob default template which is used to send default mail&#39;s </p></td>
+                </tr>
+              
+                <tr>
+                  <td>metadata</td>
+                  <td><a href="#github.com.oojob.protobuf.Metadata">github.com.oojob.protobuf.Metadata</a></td>
+                  <td></td>
+                  <td><p>It will provide you with addtional attachment of time based which which
+/ will help you to analyze the life process of the entity it attached to </p></td>
                 </tr>
               
             </tbody>
@@ -260,8 +301,130 @@
 
         
       
-        <h3 id="mail.MailRes">MailRes</h3>
-        <p></p>
+        <h3 id="mail.MailBox">MailBox</h3>
+        <p>MailBox help's us to store conversation between two email id's</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>identifier</td>
+                  <td><a href="#github.com.oojob.protobuf.Identifier">github.com.oojob.protobuf.Identifier</a></td>
+                  <td></td>
+                  <td><p>MailBox Identifier :- help&#39;s us to represent an base entity
+/ and identity uniquely </p></td>
+                </tr>
+              
+                <tr>
+                  <td>context</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailBox context help&#39;s us to identify on what context
+/ did we sent out the mail
+/ [a, b] a and b are two contacts who shared conversation between them. </p></td>
+                </tr>
+              
+                <tr>
+                  <td>owner</td>
+                  <td><a href="#string">string</a></td>
+                  <td>repeated</td>
+                  <td><p>the conversation that happened between two people </p></td>
+                </tr>
+              
+                <tr>
+                  <td>metadata</td>
+                  <td><a href="#github.com.oojob.protobuf.Metadata">github.com.oojob.protobuf.Metadata</a></td>
+                  <td></td>
+                  <td><p>It will provide you with additional attachment of time based which
+/ will help you to analyze the life process of the entity it attached to </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.SendMailReq">SendMailReq</h3>
+        <p>MailReq it help's us to define request object for mail sending task</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>from</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq from :- from whose account he mail should be send.
+/ default&#39;s to: admin@oojob.io
+/ example values: abcapplied@gmail.com </p></td>
+                </tr>
+              
+                <tr>
+                  <td>to</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq to :- to whome the mail should be sent
+/ For Eaxmple: dododuck@gmail.com </p></td>
+                </tr>
+              
+                <tr>
+                  <td>subject</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq subject :- your mail subject </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq message :- your mail body message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>attachments</td>
+                  <td><a href="#github.com.oojob.protobuf.Attachment">github.com.oojob.protobuf.Attachment</a></td>
+                  <td>repeated</td>
+                  <td><p>all the attachment needed to send for ex: PDF or an image </p></td>
+                </tr>
+              
+                <tr>
+                  <td>variable</td>
+                  <td><a href="#google.protobuf.Struct">google.protobuf.Struct</a></td>
+                  <td></td>
+                  <td><p>your variable&#39;s used for message construction based on template creation </p></td>
+                </tr>
+              
+                <tr>
+                  <td>template</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq template :- choose which template to attach with this mail
+/ data let&#39;s suppose we have 5 type&#39;s of mail template 1: for applying
+/ job 2: for company creation so this will take a value what type of
+/ template we have to choose to send the data
+/ default to oojob default template which is used to send default mail </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.SendMailRes">SendMailRes</h3>
+        <p>SendMailRes help's us to track whether the mail we requested sent</p><p>successfully or not</p>
 
         
           <table class="field-table">
@@ -274,7 +437,50 @@
                   <td>status</td>
                   <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>SendMailRes bool :- help&#39;s us to identify for success status </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.UserMailBox">UserMailBox</h3>
+        <p>UserMailBox help's us to store all the conversations of one user</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>identifier</td>
+                  <td><a href="#github.com.oojob.protobuf.Identifier">github.com.oojob.protobuf.Identifier</a></td>
+                  <td></td>
+                  <td><p>UserMailBox Identifier :- help&#39;s us to represent an base entity
+/ and identity uniquely </p></td>
+                </tr>
+              
+                <tr>
+                  <td>contacts</td>
+                  <td><a href="#google.protobuf.Struct">google.protobuf.Struct</a></td>
+                  <td></td>
+                  <td><p>help&#39;s us to store and keep a refrence to all the mail trans.
+/ &lt;&#34;dododduck&#34;, &#34;i123disfjf&#34;&gt;
+/ this user had a conversation with dododuck whose mail trans are stored in
+/ MailBox with id as i123disfjf </p></td>
+                </tr>
+              
+                <tr>
+                  <td>metadata</td>
+                  <td><a href="#github.com.oojob.protobuf.Metadata">github.com.oojob.protobuf.Metadata</a></td>
+                  <td></td>
+                  <td><p>It will provide you with addtional attachment of time based which which
+/ will help you to analyze the life process of the entity it attached to </p></td>
                 </tr>
               
             </tbody>
@@ -291,7 +497,7 @@
 
       
         <h3 id="mail.MailService">MailService</h3>
-        <p></p>
+        <p>MailService responsible for mail microservice operation.</p><p>more info can be found at : https://github.com/oojob/service-mail</p><p>project: github.com/oojob</p><p>how does this mail service work as a full microservice</p><p>1: we need to create base mail templates and attach variable to it.</p><p>2: send mail based on template or directly based upon context</p><p>- sending as company recruiter</p><p>- sending as applicant</p><p>- sending as formal mail exchange text</p><p>any other service need to send any mail's based on it's requirement</p>
         <table class="enum-table">
           <thead>
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
@@ -300,23 +506,23 @@
             
               <tr>
                 <td>SendMail</td>
-                <td><a href="#mail.MailReq">MailReq</a></td>
-                <td><a href="#mail.MailRes">MailRes</a></td>
-                <td><p></p></td>
+                <td><a href="#mail.SendMailReq">SendMailReq</a></td>
+                <td><a href="#mail.SendMailRes">SendMailRes</a></td>
+                <td><p>Used to send mail to any based on any mail template</p></td>
               </tr>
             
               <tr>
                 <td>Check</td>
                 <td><a href="#github.com.oojob.protobuf.HealthCheckRequest">.github.com.oojob.protobuf.HealthCheckRequest</a></td>
                 <td><a href="#github.com.oojob.protobuf.HealthCheckResponse">.github.com.oojob.protobuf.HealthCheckResponse</a></td>
-                <td><p></p></td>
+                <td><p>Used to check health status of the running microservice</p></td>
               </tr>
             
               <tr>
                 <td>Watch</td>
                 <td><a href="#github.com.oojob.protobuf.HealthCheckRequest">.github.com.oojob.protobuf.HealthCheckRequest</a></td>
                 <td><a href="#github.com.oojob.protobuf.HealthCheckResponse">.github.com.oojob.protobuf.HealthCheckResponse</a> stream</td>
-                <td><p></p></td>
+                <td><p>Used to check health status of the running microservice as stream</p></td>
               </tr>
             
           </tbody>
