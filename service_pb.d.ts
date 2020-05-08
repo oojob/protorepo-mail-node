@@ -2,10 +2,10 @@
 // file: services/mail/service.proto
 
 import * as jspb from "google-protobuf";
-import * as github_com_oojob_protobuf_health_pb from "../../github.com/oojob/protobuf/health_pb";
+import * as oojob_protobuf_health_pb from "@oojob/oojob-protobuf/health_pb";
 import * as google_protobuf_struct_pb from "google-protobuf/google/protobuf/struct_pb";
-import * as github_com_oojob_protobuf_metadata_pb from "../../github.com/oojob/protobuf/metadata_pb";
-import * as github_com_oojob_protobuf_system_pb from "../../github.com/oojob/protobuf/system_pb";
+import * as oojob_protobuf_metadata_pb from "@oojob/oojob-protobuf/metadata_pb";
+import * as oojob_protobuf_system_pb from "@oojob/oojob-protobuf/system_pb";
 
 export class Mail extends jspb.Message {
   getFrom(): string;
@@ -21,9 +21,9 @@ export class Mail extends jspb.Message {
   setMessage(value: string): void;
 
   clearAttachmentsList(): void;
-  getAttachmentsList(): Array<github_com_oojob_protobuf_system_pb.Attachment>;
-  setAttachmentsList(value: Array<github_com_oojob_protobuf_system_pb.Attachment>): void;
-  addAttachments(value?: github_com_oojob_protobuf_system_pb.Attachment, index?: number): github_com_oojob_protobuf_system_pb.Attachment;
+  getAttachmentsList(): Array<oojob_protobuf_system_pb.Attachment>;
+  setAttachmentsList(value: Array<oojob_protobuf_system_pb.Attachment>): void;
+  addAttachments(value?: oojob_protobuf_system_pb.Attachment, index?: number): oojob_protobuf_system_pb.Attachment;
 
   hasVariable(): boolean;
   clearVariable(): void;
@@ -35,8 +35,8 @@ export class Mail extends jspb.Message {
 
   hasMetadata(): boolean;
   clearMetadata(): void;
-  getMetadata(): github_com_oojob_protobuf_metadata_pb.Metadata | undefined;
-  setMetadata(value?: github_com_oojob_protobuf_metadata_pb.Metadata): void;
+  getMetadata(): oojob_protobuf_metadata_pb.Metadata | undefined;
+  setMetadata(value?: oojob_protobuf_metadata_pb.Metadata): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Mail.AsObject;
@@ -54,18 +54,18 @@ export namespace Mail {
     to: string,
     subject: string,
     message: string,
-    attachmentsList: Array<github_com_oojob_protobuf_system_pb.Attachment.AsObject>,
+    attachmentsList: Array<oojob_protobuf_system_pb.Attachment.AsObject>,
     variable?: google_protobuf_struct_pb.Struct.AsObject,
     template: string,
-    metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
+    metadata?: oojob_protobuf_metadata_pb.Metadata.AsObject,
   }
 }
 
 export class MailBox extends jspb.Message {
   hasIdentifier(): boolean;
   clearIdentifier(): void;
-  getIdentifier(): github_com_oojob_protobuf_system_pb.Identifier | undefined;
-  setIdentifier(value?: github_com_oojob_protobuf_system_pb.Identifier): void;
+  getIdentifier(): oojob_protobuf_system_pb.Identifier | undefined;
+  setIdentifier(value?: oojob_protobuf_system_pb.Identifier): void;
 
   getContext(): string;
   setContext(value: string): void;
@@ -77,8 +77,8 @@ export class MailBox extends jspb.Message {
 
   hasMetadata(): boolean;
   clearMetadata(): void;
-  getMetadata(): github_com_oojob_protobuf_metadata_pb.Metadata | undefined;
-  setMetadata(value?: github_com_oojob_protobuf_metadata_pb.Metadata): void;
+  getMetadata(): oojob_protobuf_metadata_pb.Metadata | undefined;
+  setMetadata(value?: oojob_protobuf_metadata_pb.Metadata): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MailBox.AsObject;
@@ -92,18 +92,18 @@ export class MailBox extends jspb.Message {
 
 export namespace MailBox {
   export type AsObject = {
-    identifier?: github_com_oojob_protobuf_system_pb.Identifier.AsObject,
+    identifier?: oojob_protobuf_system_pb.Identifier.AsObject,
     context: string,
     ownerList: Array<string>,
-    metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
+    metadata?: oojob_protobuf_metadata_pb.Metadata.AsObject,
   }
 }
 
 export class UserMailBox extends jspb.Message {
   hasIdentifier(): boolean;
   clearIdentifier(): void;
-  getIdentifier(): github_com_oojob_protobuf_system_pb.Identifier | undefined;
-  setIdentifier(value?: github_com_oojob_protobuf_system_pb.Identifier): void;
+  getIdentifier(): oojob_protobuf_system_pb.Identifier | undefined;
+  setIdentifier(value?: oojob_protobuf_system_pb.Identifier): void;
 
   hasContacts(): boolean;
   clearContacts(): void;
@@ -112,8 +112,8 @@ export class UserMailBox extends jspb.Message {
 
   hasMetadata(): boolean;
   clearMetadata(): void;
-  getMetadata(): github_com_oojob_protobuf_metadata_pb.Metadata | undefined;
-  setMetadata(value?: github_com_oojob_protobuf_metadata_pb.Metadata): void;
+  getMetadata(): oojob_protobuf_metadata_pb.Metadata | undefined;
+  setMetadata(value?: oojob_protobuf_metadata_pb.Metadata): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMailBox.AsObject;
@@ -127,9 +127,9 @@ export class UserMailBox extends jspb.Message {
 
 export namespace UserMailBox {
   export type AsObject = {
-    identifier?: github_com_oojob_protobuf_system_pb.Identifier.AsObject,
+    identifier?: oojob_protobuf_system_pb.Identifier.AsObject,
     contacts?: google_protobuf_struct_pb.Struct.AsObject,
-    metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
+    metadata?: oojob_protobuf_metadata_pb.Metadata.AsObject,
   }
 }
 
@@ -147,9 +147,9 @@ export class SendMailReq extends jspb.Message {
   setMessage(value: string): void;
 
   clearAttachmentsList(): void;
-  getAttachmentsList(): Array<github_com_oojob_protobuf_system_pb.Attachment>;
-  setAttachmentsList(value: Array<github_com_oojob_protobuf_system_pb.Attachment>): void;
-  addAttachments(value?: github_com_oojob_protobuf_system_pb.Attachment, index?: number): github_com_oojob_protobuf_system_pb.Attachment;
+  getAttachmentsList(): Array<oojob_protobuf_system_pb.Attachment>;
+  setAttachmentsList(value: Array<oojob_protobuf_system_pb.Attachment>): void;
+  addAttachments(value?: oojob_protobuf_system_pb.Attachment, index?: number): oojob_protobuf_system_pb.Attachment;
 
   hasVariable(): boolean;
   clearVariable(): void;
@@ -175,7 +175,7 @@ export namespace SendMailReq {
     to: string,
     subject: string,
     message: string,
-    attachmentsList: Array<github_com_oojob_protobuf_system_pb.Attachment.AsObject>,
+    attachmentsList: Array<oojob_protobuf_system_pb.Attachment.AsObject>,
     variable?: google_protobuf_struct_pb.Struct.AsObject,
     template: string,
   }

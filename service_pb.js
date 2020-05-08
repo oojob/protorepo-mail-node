@@ -12,14 +12,14 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var github_com_oojob_protobuf_health_pb = require('../../github.com/oojob/protobuf/health_pb.js');
-goog.object.extend(proto, github_com_oojob_protobuf_health_pb);
+var oojob_protobuf_health_pb = require('@oojob/oojob-protobuf/health_pb.js');
+goog.object.extend(proto, oojob_protobuf_health_pb);
 var google_protobuf_struct_pb = require('google-protobuf/google/protobuf/struct_pb.js');
 goog.object.extend(proto, google_protobuf_struct_pb);
-var github_com_oojob_protobuf_metadata_pb = require('../../github.com/oojob/protobuf/metadata_pb.js');
-goog.object.extend(proto, github_com_oojob_protobuf_metadata_pb);
-var github_com_oojob_protobuf_system_pb = require('../../github.com/oojob/protobuf/system_pb.js');
-goog.object.extend(proto, github_com_oojob_protobuf_system_pb);
+var oojob_protobuf_metadata_pb = require('@oojob/oojob-protobuf/metadata_pb.js');
+goog.object.extend(proto, oojob_protobuf_metadata_pb);
+var oojob_protobuf_system_pb = require('@oojob/oojob-protobuf/system_pb.js');
+goog.object.extend(proto, oojob_protobuf_system_pb);
 goog.exportSymbol('proto.mail.Mail', null, global);
 goog.exportSymbol('proto.mail.MailBox', null, global);
 goog.exportSymbol('proto.mail.SendMailReq', null, global);
@@ -174,10 +174,10 @@ proto.mail.Mail.toObject = function(includeInstance, msg) {
     subject: jspb.Message.getFieldWithDefault(msg, 3, ""),
     message: jspb.Message.getFieldWithDefault(msg, 4, ""),
     attachmentsList: jspb.Message.toObjectList(msg.getAttachmentsList(),
-    github_com_oojob_protobuf_system_pb.Attachment.toObject, includeInstance),
+    oojob_protobuf_system_pb.Attachment.toObject, includeInstance),
     variable: (f = msg.getVariable()) && google_protobuf_struct_pb.Struct.toObject(includeInstance, f),
     template: jspb.Message.getFieldWithDefault(msg, 7, ""),
-    metadata: (f = msg.getMetadata()) && github_com_oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
+    metadata: (f = msg.getMetadata()) && oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -231,8 +231,8 @@ proto.mail.Mail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setMessage(value);
       break;
     case 5:
-      var value = new github_com_oojob_protobuf_system_pb.Attachment;
-      reader.readMessage(value,github_com_oojob_protobuf_system_pb.Attachment.deserializeBinaryFromReader);
+      var value = new oojob_protobuf_system_pb.Attachment;
+      reader.readMessage(value,oojob_protobuf_system_pb.Attachment.deserializeBinaryFromReader);
       msg.addAttachments(value);
       break;
     case 6:
@@ -245,8 +245,8 @@ proto.mail.Mail.deserializeBinaryFromReader = function(msg, reader) {
       msg.setTemplate(value);
       break;
     case 8:
-      var value = new github_com_oojob_protobuf_metadata_pb.Metadata;
-      reader.readMessage(value,github_com_oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
+      var value = new oojob_protobuf_metadata_pb.Metadata;
+      reader.readMessage(value,oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
       msg.setMetadata(value);
       break;
     default:
@@ -311,7 +311,7 @@ proto.mail.Mail.serializeBinaryToWriter = function(message, writer) {
     writer.writeRepeatedMessage(
       5,
       f,
-      github_com_oojob_protobuf_system_pb.Attachment.serializeBinaryToWriter
+      oojob_protobuf_system_pb.Attachment.serializeBinaryToWriter
     );
   }
   f = message.getVariable();
@@ -334,7 +334,7 @@ proto.mail.Mail.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       8,
       f,
-      github_com_oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
+      oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
     );
   }
 };
@@ -413,17 +413,17 @@ proto.mail.Mail.prototype.setMessage = function(value) {
 
 
 /**
- * repeated github.com.oojob.protobuf.Attachment attachments = 5;
- * @return {!Array<!proto.github.com.oojob.protobuf.Attachment>}
+ * repeated oojob.protobuf.Attachment attachments = 5;
+ * @return {!Array<!proto.oojob.protobuf.Attachment>}
  */
 proto.mail.Mail.prototype.getAttachmentsList = function() {
-  return /** @type{!Array<!proto.github.com.oojob.protobuf.Attachment>} */ (
-    jspb.Message.getRepeatedWrapperField(this, github_com_oojob_protobuf_system_pb.Attachment, 5));
+  return /** @type{!Array<!proto.oojob.protobuf.Attachment>} */ (
+    jspb.Message.getRepeatedWrapperField(this, oojob_protobuf_system_pb.Attachment, 5));
 };
 
 
 /**
- * @param {!Array<!proto.github.com.oojob.protobuf.Attachment>} value
+ * @param {!Array<!proto.oojob.protobuf.Attachment>} value
  * @return {!proto.mail.Mail} returns this
 */
 proto.mail.Mail.prototype.setAttachmentsList = function(value) {
@@ -432,12 +432,12 @@ proto.mail.Mail.prototype.setAttachmentsList = function(value) {
 
 
 /**
- * @param {!proto.github.com.oojob.protobuf.Attachment=} opt_value
+ * @param {!proto.oojob.protobuf.Attachment=} opt_value
  * @param {number=} opt_index
- * @return {!proto.github.com.oojob.protobuf.Attachment}
+ * @return {!proto.oojob.protobuf.Attachment}
  */
 proto.mail.Mail.prototype.addAttachments = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.github.com.oojob.protobuf.Attachment, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.oojob.protobuf.Attachment, opt_index);
 };
 
 
@@ -506,17 +506,17 @@ proto.mail.Mail.prototype.setTemplate = function(value) {
 
 
 /**
- * optional github.com.oojob.protobuf.Metadata metadata = 8;
- * @return {?proto.github.com.oojob.protobuf.Metadata}
+ * optional oojob.protobuf.Metadata metadata = 8;
+ * @return {?proto.oojob.protobuf.Metadata}
  */
 proto.mail.Mail.prototype.getMetadata = function() {
-  return /** @type{?proto.github.com.oojob.protobuf.Metadata} */ (
-    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_metadata_pb.Metadata, 8));
+  return /** @type{?proto.oojob.protobuf.Metadata} */ (
+    jspb.Message.getWrapperField(this, oojob_protobuf_metadata_pb.Metadata, 8));
 };
 
 
 /**
- * @param {?proto.github.com.oojob.protobuf.Metadata|undefined} value
+ * @param {?proto.oojob.protobuf.Metadata|undefined} value
  * @return {!proto.mail.Mail} returns this
 */
 proto.mail.Mail.prototype.setMetadata = function(value) {
@@ -581,10 +581,10 @@ proto.mail.MailBox.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mail.MailBox.toObject = function(includeInstance, msg) {
   var f, obj = {
-    identifier: (f = msg.getIdentifier()) && github_com_oojob_protobuf_system_pb.Identifier.toObject(includeInstance, f),
+    identifier: (f = msg.getIdentifier()) && oojob_protobuf_system_pb.Identifier.toObject(includeInstance, f),
     context: jspb.Message.getFieldWithDefault(msg, 2, ""),
     ownerList: (f = jspb.Message.getRepeatedField(msg, 3)) == null ? undefined : f,
-    metadata: (f = msg.getMetadata()) && github_com_oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
+    metadata: (f = msg.getMetadata()) && oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -622,8 +622,8 @@ proto.mail.MailBox.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new github_com_oojob_protobuf_system_pb.Identifier;
-      reader.readMessage(value,github_com_oojob_protobuf_system_pb.Identifier.deserializeBinaryFromReader);
+      var value = new oojob_protobuf_system_pb.Identifier;
+      reader.readMessage(value,oojob_protobuf_system_pb.Identifier.deserializeBinaryFromReader);
       msg.setIdentifier(value);
       break;
     case 2:
@@ -635,8 +635,8 @@ proto.mail.MailBox.deserializeBinaryFromReader = function(msg, reader) {
       msg.addOwner(value);
       break;
     case 8:
-      var value = new github_com_oojob_protobuf_metadata_pb.Metadata;
-      reader.readMessage(value,github_com_oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
+      var value = new oojob_protobuf_metadata_pb.Metadata;
+      reader.readMessage(value,oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
       msg.setMetadata(value);
       break;
     default:
@@ -673,7 +673,7 @@ proto.mail.MailBox.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       1,
       f,
-      github_com_oojob_protobuf_system_pb.Identifier.serializeBinaryToWriter
+      oojob_protobuf_system_pb.Identifier.serializeBinaryToWriter
     );
   }
   f = message.getContext();
@@ -695,24 +695,24 @@ proto.mail.MailBox.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       8,
       f,
-      github_com_oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
+      oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional github.com.oojob.protobuf.Identifier identifier = 1;
- * @return {?proto.github.com.oojob.protobuf.Identifier}
+ * optional oojob.protobuf.Identifier identifier = 1;
+ * @return {?proto.oojob.protobuf.Identifier}
  */
 proto.mail.MailBox.prototype.getIdentifier = function() {
-  return /** @type{?proto.github.com.oojob.protobuf.Identifier} */ (
-    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_system_pb.Identifier, 1));
+  return /** @type{?proto.oojob.protobuf.Identifier} */ (
+    jspb.Message.getWrapperField(this, oojob_protobuf_system_pb.Identifier, 1));
 };
 
 
 /**
- * @param {?proto.github.com.oojob.protobuf.Identifier|undefined} value
+ * @param {?proto.oojob.protobuf.Identifier|undefined} value
  * @return {!proto.mail.MailBox} returns this
 */
 proto.mail.MailBox.prototype.setIdentifier = function(value) {
@@ -794,17 +794,17 @@ proto.mail.MailBox.prototype.clearOwnerList = function() {
 
 
 /**
- * optional github.com.oojob.protobuf.Metadata metadata = 8;
- * @return {?proto.github.com.oojob.protobuf.Metadata}
+ * optional oojob.protobuf.Metadata metadata = 8;
+ * @return {?proto.oojob.protobuf.Metadata}
  */
 proto.mail.MailBox.prototype.getMetadata = function() {
-  return /** @type{?proto.github.com.oojob.protobuf.Metadata} */ (
-    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_metadata_pb.Metadata, 8));
+  return /** @type{?proto.oojob.protobuf.Metadata} */ (
+    jspb.Message.getWrapperField(this, oojob_protobuf_metadata_pb.Metadata, 8));
 };
 
 
 /**
- * @param {?proto.github.com.oojob.protobuf.Metadata|undefined} value
+ * @param {?proto.oojob.protobuf.Metadata|undefined} value
  * @return {!proto.mail.MailBox} returns this
 */
 proto.mail.MailBox.prototype.setMetadata = function(value) {
@@ -862,9 +862,9 @@ proto.mail.UserMailBox.prototype.toObject = function(opt_includeInstance) {
  */
 proto.mail.UserMailBox.toObject = function(includeInstance, msg) {
   var f, obj = {
-    identifier: (f = msg.getIdentifier()) && github_com_oojob_protobuf_system_pb.Identifier.toObject(includeInstance, f),
+    identifier: (f = msg.getIdentifier()) && oojob_protobuf_system_pb.Identifier.toObject(includeInstance, f),
     contacts: (f = msg.getContacts()) && google_protobuf_struct_pb.Struct.toObject(includeInstance, f),
-    metadata: (f = msg.getMetadata()) && github_com_oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
+    metadata: (f = msg.getMetadata()) && oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -902,8 +902,8 @@ proto.mail.UserMailBox.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new github_com_oojob_protobuf_system_pb.Identifier;
-      reader.readMessage(value,github_com_oojob_protobuf_system_pb.Identifier.deserializeBinaryFromReader);
+      var value = new oojob_protobuf_system_pb.Identifier;
+      reader.readMessage(value,oojob_protobuf_system_pb.Identifier.deserializeBinaryFromReader);
       msg.setIdentifier(value);
       break;
     case 2:
@@ -912,8 +912,8 @@ proto.mail.UserMailBox.deserializeBinaryFromReader = function(msg, reader) {
       msg.setContacts(value);
       break;
     case 8:
-      var value = new github_com_oojob_protobuf_metadata_pb.Metadata;
-      reader.readMessage(value,github_com_oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
+      var value = new oojob_protobuf_metadata_pb.Metadata;
+      reader.readMessage(value,oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
       msg.setMetadata(value);
       break;
     default:
@@ -950,7 +950,7 @@ proto.mail.UserMailBox.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       1,
       f,
-      github_com_oojob_protobuf_system_pb.Identifier.serializeBinaryToWriter
+      oojob_protobuf_system_pb.Identifier.serializeBinaryToWriter
     );
   }
   f = message.getContacts();
@@ -966,24 +966,24 @@ proto.mail.UserMailBox.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       8,
       f,
-      github_com_oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
+      oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional github.com.oojob.protobuf.Identifier identifier = 1;
- * @return {?proto.github.com.oojob.protobuf.Identifier}
+ * optional oojob.protobuf.Identifier identifier = 1;
+ * @return {?proto.oojob.protobuf.Identifier}
  */
 proto.mail.UserMailBox.prototype.getIdentifier = function() {
-  return /** @type{?proto.github.com.oojob.protobuf.Identifier} */ (
-    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_system_pb.Identifier, 1));
+  return /** @type{?proto.oojob.protobuf.Identifier} */ (
+    jspb.Message.getWrapperField(this, oojob_protobuf_system_pb.Identifier, 1));
 };
 
 
 /**
- * @param {?proto.github.com.oojob.protobuf.Identifier|undefined} value
+ * @param {?proto.oojob.protobuf.Identifier|undefined} value
  * @return {!proto.mail.UserMailBox} returns this
 */
 proto.mail.UserMailBox.prototype.setIdentifier = function(value) {
@@ -1047,17 +1047,17 @@ proto.mail.UserMailBox.prototype.hasContacts = function() {
 
 
 /**
- * optional github.com.oojob.protobuf.Metadata metadata = 8;
- * @return {?proto.github.com.oojob.protobuf.Metadata}
+ * optional oojob.protobuf.Metadata metadata = 8;
+ * @return {?proto.oojob.protobuf.Metadata}
  */
 proto.mail.UserMailBox.prototype.getMetadata = function() {
-  return /** @type{?proto.github.com.oojob.protobuf.Metadata} */ (
-    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_metadata_pb.Metadata, 8));
+  return /** @type{?proto.oojob.protobuf.Metadata} */ (
+    jspb.Message.getWrapperField(this, oojob_protobuf_metadata_pb.Metadata, 8));
 };
 
 
 /**
- * @param {?proto.github.com.oojob.protobuf.Metadata|undefined} value
+ * @param {?proto.oojob.protobuf.Metadata|undefined} value
  * @return {!proto.mail.UserMailBox} returns this
 */
 proto.mail.UserMailBox.prototype.setMetadata = function(value) {
@@ -1127,7 +1127,7 @@ proto.mail.SendMailReq.toObject = function(includeInstance, msg) {
     subject: jspb.Message.getFieldWithDefault(msg, 3, ""),
     message: jspb.Message.getFieldWithDefault(msg, 4, ""),
     attachmentsList: jspb.Message.toObjectList(msg.getAttachmentsList(),
-    github_com_oojob_protobuf_system_pb.Attachment.toObject, includeInstance),
+    oojob_protobuf_system_pb.Attachment.toObject, includeInstance),
     variable: (f = msg.getVariable()) && google_protobuf_struct_pb.Struct.toObject(includeInstance, f),
     template: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
@@ -1183,8 +1183,8 @@ proto.mail.SendMailReq.deserializeBinaryFromReader = function(msg, reader) {
       msg.setMessage(value);
       break;
     case 5:
-      var value = new github_com_oojob_protobuf_system_pb.Attachment;
-      reader.readMessage(value,github_com_oojob_protobuf_system_pb.Attachment.deserializeBinaryFromReader);
+      var value = new oojob_protobuf_system_pb.Attachment;
+      reader.readMessage(value,oojob_protobuf_system_pb.Attachment.deserializeBinaryFromReader);
       msg.addAttachments(value);
       break;
     case 6:
@@ -1258,7 +1258,7 @@ proto.mail.SendMailReq.serializeBinaryToWriter = function(message, writer) {
     writer.writeRepeatedMessage(
       5,
       f,
-      github_com_oojob_protobuf_system_pb.Attachment.serializeBinaryToWriter
+      oojob_protobuf_system_pb.Attachment.serializeBinaryToWriter
     );
   }
   f = message.getVariable();
@@ -1352,17 +1352,17 @@ proto.mail.SendMailReq.prototype.setMessage = function(value) {
 
 
 /**
- * repeated github.com.oojob.protobuf.Attachment attachments = 5;
- * @return {!Array<!proto.github.com.oojob.protobuf.Attachment>}
+ * repeated oojob.protobuf.Attachment attachments = 5;
+ * @return {!Array<!proto.oojob.protobuf.Attachment>}
  */
 proto.mail.SendMailReq.prototype.getAttachmentsList = function() {
-  return /** @type{!Array<!proto.github.com.oojob.protobuf.Attachment>} */ (
-    jspb.Message.getRepeatedWrapperField(this, github_com_oojob_protobuf_system_pb.Attachment, 5));
+  return /** @type{!Array<!proto.oojob.protobuf.Attachment>} */ (
+    jspb.Message.getRepeatedWrapperField(this, oojob_protobuf_system_pb.Attachment, 5));
 };
 
 
 /**
- * @param {!Array<!proto.github.com.oojob.protobuf.Attachment>} value
+ * @param {!Array<!proto.oojob.protobuf.Attachment>} value
  * @return {!proto.mail.SendMailReq} returns this
 */
 proto.mail.SendMailReq.prototype.setAttachmentsList = function(value) {
@@ -1371,12 +1371,12 @@ proto.mail.SendMailReq.prototype.setAttachmentsList = function(value) {
 
 
 /**
- * @param {!proto.github.com.oojob.protobuf.Attachment=} opt_value
+ * @param {!proto.oojob.protobuf.Attachment=} opt_value
  * @param {number=} opt_index
- * @return {!proto.github.com.oojob.protobuf.Attachment}
+ * @return {!proto.oojob.protobuf.Attachment}
  */
 proto.mail.SendMailReq.prototype.addAttachments = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.github.com.oojob.protobuf.Attachment, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 5, opt_value, proto.oojob.protobuf.Attachment, opt_index);
 };
 
 

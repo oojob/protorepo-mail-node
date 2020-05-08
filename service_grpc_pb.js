@@ -13,33 +13,11 @@
 // Copyright (c) 2020 - oojob
 'use strict';
 var grpc = require('grpc');
-var services_mail_service_pb = require('../../services/mail/service_pb.js');
-var github_com_oojob_protobuf_health_pb = require('../../github.com/oojob/protobuf/health_pb.js');
+var services_mail_service_pb = require('./service_pb.js');
+var oojob_protobuf_health_pb = require('@oojob/oojob-protobuf/health_pb.js');
 var google_protobuf_struct_pb = require('google-protobuf/google/protobuf/struct_pb.js');
-var github_com_oojob_protobuf_metadata_pb = require('../../github.com/oojob/protobuf/metadata_pb.js');
-var github_com_oojob_protobuf_system_pb = require('../../github.com/oojob/protobuf/system_pb.js');
-
-function serialize_github_com_oojob_protobuf_HealthCheckRequest(arg) {
-  if (!(arg instanceof github_com_oojob_protobuf_health_pb.HealthCheckRequest)) {
-    throw new Error('Expected argument of type github.com.oojob.protobuf.HealthCheckRequest');
-  }
-  return new Buffer(arg.serializeBinary());
-}
-
-function deserialize_github_com_oojob_protobuf_HealthCheckRequest(buffer_arg) {
-  return github_com_oojob_protobuf_health_pb.HealthCheckRequest.deserializeBinary(new Uint8Array(buffer_arg));
-}
-
-function serialize_github_com_oojob_protobuf_HealthCheckResponse(arg) {
-  if (!(arg instanceof github_com_oojob_protobuf_health_pb.HealthCheckResponse)) {
-    throw new Error('Expected argument of type github.com.oojob.protobuf.HealthCheckResponse');
-  }
-  return new Buffer(arg.serializeBinary());
-}
-
-function deserialize_github_com_oojob_protobuf_HealthCheckResponse(buffer_arg) {
-  return github_com_oojob_protobuf_health_pb.HealthCheckResponse.deserializeBinary(new Uint8Array(buffer_arg));
-}
+var oojob_protobuf_metadata_pb = require('@oojob/oojob-protobuf/metadata_pb.js');
+var oojob_protobuf_system_pb = require('@oojob/oojob-protobuf/system_pb.js');
 
 function serialize_mail_SendMailReq(arg) {
   if (!(arg instanceof services_mail_service_pb.SendMailReq)) {
@@ -63,11 +41,33 @@ function deserialize_mail_SendMailRes(buffer_arg) {
   return services_mail_service_pb.SendMailRes.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_oojob_protobuf_HealthCheckRequest(arg) {
+  if (!(arg instanceof oojob_protobuf_health_pb.HealthCheckRequest)) {
+    throw new Error('Expected argument of type oojob.protobuf.HealthCheckRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_oojob_protobuf_HealthCheckRequest(buffer_arg) {
+  return oojob_protobuf_health_pb.HealthCheckRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_oojob_protobuf_HealthCheckResponse(arg) {
+  if (!(arg instanceof oojob_protobuf_health_pb.HealthCheckResponse)) {
+    throw new Error('Expected argument of type oojob.protobuf.HealthCheckResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_oojob_protobuf_HealthCheckResponse(buffer_arg) {
+  return oojob_protobuf_health_pb.HealthCheckResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 
 // *
 // MailService responsible for mail microservice operation.
-// more info can be found at : https://github.com/oojob/service-mail
-// project: github.com/oojob
+// more info can be found at : https://oojob/service-mail
+// project: oojob
 // how does this mail service work as a full microservice
 // 1: we need to create base mail templates and attach variable to it.
 // 2: send mail based on template or directly based upon context
@@ -93,24 +93,24 @@ var MailServiceService = exports.MailServiceService = {
     path: '/mail.MailService/Check',
     requestStream: false,
     responseStream: false,
-    requestType: github_com_oojob_protobuf_health_pb.HealthCheckRequest,
-    responseType: github_com_oojob_protobuf_health_pb.HealthCheckResponse,
-    requestSerialize: serialize_github_com_oojob_protobuf_HealthCheckRequest,
-    requestDeserialize: deserialize_github_com_oojob_protobuf_HealthCheckRequest,
-    responseSerialize: serialize_github_com_oojob_protobuf_HealthCheckResponse,
-    responseDeserialize: deserialize_github_com_oojob_protobuf_HealthCheckResponse,
+    requestType: oojob_protobuf_health_pb.HealthCheckRequest,
+    responseType: oojob_protobuf_health_pb.HealthCheckResponse,
+    requestSerialize: serialize_oojob_protobuf_HealthCheckRequest,
+    requestDeserialize: deserialize_oojob_protobuf_HealthCheckRequest,
+    responseSerialize: serialize_oojob_protobuf_HealthCheckResponse,
+    responseDeserialize: deserialize_oojob_protobuf_HealthCheckResponse,
   },
   // / Used to check health status of the running microservice as stream
   watch: {
     path: '/mail.MailService/Watch',
     requestStream: false,
     responseStream: true,
-    requestType: github_com_oojob_protobuf_health_pb.HealthCheckRequest,
-    responseType: github_com_oojob_protobuf_health_pb.HealthCheckResponse,
-    requestSerialize: serialize_github_com_oojob_protobuf_HealthCheckRequest,
-    requestDeserialize: deserialize_github_com_oojob_protobuf_HealthCheckRequest,
-    responseSerialize: serialize_github_com_oojob_protobuf_HealthCheckResponse,
-    responseDeserialize: deserialize_github_com_oojob_protobuf_HealthCheckResponse,
+    requestType: oojob_protobuf_health_pb.HealthCheckRequest,
+    responseType: oojob_protobuf_health_pb.HealthCheckResponse,
+    requestSerialize: serialize_oojob_protobuf_HealthCheckRequest,
+    requestDeserialize: deserialize_oojob_protobuf_HealthCheckRequest,
+    responseSerialize: serialize_oojob_protobuf_HealthCheckResponse,
+    responseDeserialize: deserialize_oojob_protobuf_HealthCheckResponse,
   },
 };
 
