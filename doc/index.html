@@ -183,7 +183,31 @@
                 </li>
               
                 <li>
-                  <a href="#mail.MailBox"><span class="badge">M</span>MailBox</a>
+                  <a href="#mail.MailConversation"><span class="badge">M</span>MailConversation</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.MailNotifications"><span class="badge">M</span>MailNotifications</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.MailTemplate"><span class="badge">M</span>MailTemplate</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.MailTemplate.Attributes"><span class="badge">M</span>MailTemplate.Attributes</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.MailTemplate.Attributes.ValuesEntry"><span class="badge">M</span>MailTemplate.Attributes.ValuesEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.Message"><span class="badge">M</span>Message</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.MessageConversation"><span class="badge">M</span>MessageConversation</a>
                 </li>
               
                 <li>
@@ -191,11 +215,31 @@
                 </li>
               
                 <li>
-                  <a href="#mail.SendMailRes"><span class="badge">M</span>SendMailRes</a>
+                  <a href="#mail.SendMessageReq"><span class="badge">M</span>SendMessageReq</a>
                 </li>
               
                 <li>
                   <a href="#mail.UserMailBox"><span class="badge">M</span>UserMailBox</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.UserMailBox.Conversations"><span class="badge">M</span>UserMailBox.Conversations</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.UserMailBox.Conversations.ValuesEntry"><span class="badge">M</span>UserMailBox.Conversations.ValuesEntry</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.UserMessageBox"><span class="badge">M</span>UserMessageBox</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.UserMessageBox.Conversations"><span class="badge">M</span>UserMessageBox.Conversations</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.UserMessageBox.Conversations.ValuesEntry"><span class="badge">M</span>UserMessageBox.Conversations.ValuesEntry</a>
                 </li>
               
               
@@ -221,7 +265,68 @@
 
       
         <h3 id="mail.Mail">Mail</h3>
-        <p>Mail help's us to store one mail entity for future conversation refrence</p>
+        <p>Mail base schema</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>mail :- mongodb generated ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>notifications</td>
+                  <td><a href="#mail.MailNotifications">MailNotifications</a></td>
+                  <td></td>
+                  <td><p>notifications </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mail_templates</td>
+                  <td><a href="#mail.MailTemplate">MailTemplate</a></td>
+                  <td>repeated</td>
+                  <td><p>mail templates </p></td>
+                </tr>
+              
+                <tr>
+                  <td>messages</td>
+                  <td><a href="#mail.UserMessageBox">UserMessageBox</a></td>
+                  <td></td>
+                  <td><p>messages </p></td>
+                </tr>
+              
+                <tr>
+                  <td>mails</td>
+                  <td><a href="#mail.UserMailBox">UserMailBox</a></td>
+                  <td></td>
+                  <td><p>mails </p></td>
+                </tr>
+              
+                <tr>
+                  <td>metadata</td>
+                  <td><a href="#github.com.oojob.protobuf.Metadata">github.com.oojob.protobuf.Metadata</a></td>
+                  <td></td>
+                  <td><p>It will provide you with addtional attachment of time based which
+/ which will help you to analyze the life process of the entity it
+/ attached to </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.MailConversation">MailConversation</h3>
+        <p>MailReq help's us to store one mail entity for future conversation refrence</p>
 
         
           <table class="field-table">
@@ -255,24 +360,10 @@
                 </tr>
               
                 <tr>
-                  <td>message</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>MailReq message :- your mail body message </p></td>
-                </tr>
-              
-                <tr>
-                  <td>attachments</td>
-                  <td><a href="#github.com.oojob.protobuf.Attachment">github.com.oojob.protobuf.Attachment</a></td>
+                  <td>messages</td>
+                  <td><a href="#mail.Message">Message</a></td>
                   <td>repeated</td>
-                  <td><p>all the attachment needed to send for ex: PDF or an image </p></td>
-                </tr>
-              
-                <tr>
-                  <td>variable</td>
-                  <td><a href="#google.protobuf.Struct">google.protobuf.Struct</a></td>
-                  <td></td>
-                  <td><p>your variable&#39;s used for message construction based on template creation </p></td>
+                  <td><p>all the mail conversations </p></td>
                 </tr>
               
                 <tr>
@@ -301,8 +392,8 @@
 
         
       
-        <h3 id="mail.MailBox">MailBox</h3>
-        <p>MailBox help's us to store conversation between two email id's</p>
+        <h3 id="mail.MailNotifications">MailNotifications</h3>
+        <p>MailNotifications help's us to store one mail sending notification option's</p><p>refrence</p>
 
         
           <table class="field-table">
@@ -312,34 +403,260 @@
             <tbody>
               
                 <tr>
-                  <td>identifier</td>
-                  <td><a href="#github.com.oojob.protobuf.Identifier">github.com.oojob.protobuf.Identifier</a></td>
+                  <td>daily_digest</td>
+                  <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p>MailBox Identifier :- help&#39;s us to represent an base entity
-/ and identity uniquely </p></td>
+                  <td><p>MailNotifications daily_digest :- daily mails for knowledge and making an
+/ active community </p></td>
                 </tr>
               
                 <tr>
-                  <td>context</td>
-                  <td><a href="#string">string</a></td>
+                  <td>new_direct_message</td>
+                  <td><a href="#bool">bool</a></td>
                   <td></td>
-                  <td><p>MailBox context help&#39;s us to identify on what context
-/ did we sent out the mail
-/ [a, b] a and b are two contacts who shared conversation between them. </p></td>
+                  <td><p>MailNotifications new_direct_message :- new direct message mail </p></td>
                 </tr>
               
                 <tr>
-                  <td>owner</td>
+                  <td>new_mention</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>MailNotifications new_mention :- new mention  mail in message, comment etc </p></td>
+                </tr>
+              
+                <tr>
+                  <td>new_message_in_threads</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>MailNotifications new_message_in_threads :- new mention in public thread
+/ like in discussion etc </p></td>
+                </tr>
+              
+                <tr>
+                  <td>new_thread_created</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>MailNotifications new_thread_created :-when new topics created keeping the
+/ user </p></td>
+                </tr>
+              
+                <tr>
+                  <td>weekly_digest</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>MailNotifications weekly_digest :- weekly digest </p></td>
+                </tr>
+              
+                <tr>
+                  <td>new_event_created</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>MailNotifications new_event_created :- event created like job posted, etc </p></td>
+                </tr>
+              
+                <tr>
+                  <td>new_interview</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p>MailNotifications new_interview :- when new interview is scheduled </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.MailTemplate">MailTemplate</h3>
+        <p>MailTemplate help's us to define all mail templates used by company for</p><p>sending mails</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
                   <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>profile :- mongodb generated ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>attributes</td>
+                  <td><a href="#mail.MailTemplate.Attributes">MailTemplate.Attributes</a></td>
                   <td>repeated</td>
-                  <td><p>the conversation that happened between two people </p></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>primary_color</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>primary color used for mail </p></td>
+                </tr>
+              
+                <tr>
+                  <td>secondary_color</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>secondary color used for mail </p></td>
+                </tr>
+              
+                <tr>
+                  <td>logo</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>additional mail logo </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.MailTemplate.Attributes">MailTemplate.Attributes</h3>
+        <p>tempate attribute data value</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#mail.MailTemplate.Attributes.ValuesEntry">MailTemplate.Attributes.ValuesEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.MailTemplate.Attributes.ValuesEntry">MailTemplate.Attributes.ValuesEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.Message">Message</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>mail_message :- mongodb generated ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq message :- your mail body message </p></td>
+                </tr>
+              
+                <tr>
+                  <td>attachments</td>
+                  <td><a href="#github.com.oojob.protobuf.Attachment">github.com.oojob.protobuf.Attachment</a></td>
+                  <td></td>
+                  <td><p>all the attachment needed to send for ex: PDF or an image </p></td>
+                </tr>
+              
+                <tr>
+                  <td>created_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>message creation time </p></td>
+                </tr>
+              
+                <tr>
+                  <td>read_at</td>
+                  <td><a href="#google.protobuf.Timestamp">google.protobuf.Timestamp</a></td>
+                  <td></td>
+                  <td><p>message reading time </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.MessageConversation">MessageConversation</h3>
+        <p>MessageConversation help's us to store message conversation</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>to</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq to :- to whom the mail should be sent
+/ For Eaxmple: dododuck@gmail.com </p></td>
+                </tr>
+              
+                <tr>
+                  <td>messages</td>
+                  <td><a href="#mail.Message">Message</a></td>
+                  <td>repeated</td>
+                  <td><p>all the mail conversations </p></td>
                 </tr>
               
                 <tr>
                   <td>metadata</td>
                   <td><a href="#github.com.oojob.protobuf.Metadata">github.com.oojob.protobuf.Metadata</a></td>
                   <td></td>
-                  <td><p>It will provide you with additional attachment of time based which
+                  <td><p>It will provide you with addtional attachment of time based which which
 / will help you to analyze the life process of the entity it attached to </p></td>
                 </tr>
               
@@ -423,8 +740,8 @@
 
         
       
-        <h3 id="mail.SendMailRes">SendMailRes</h3>
-        <p>SendMailRes help's us to track whether the mail we requested sent</p><p>successfully or not</p>
+        <h3 id="mail.SendMessageReq">SendMessageReq</h3>
+        <p></p>
 
         
           <table class="field-table">
@@ -434,10 +751,27 @@
             <tbody>
               
                 <tr>
-                  <td>status</td>
-                  <td><a href="#bool">bool</a></td>
+                  <td>from</td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p>SendMailRes bool :- help&#39;s us to identify for success status </p></td>
+                  <td><p>MailReq from :- from whose account he mail should be send.
+/ default&#39;s to: admin@oojob.io
+/ example values: abcapplied@gmail.com </p></td>
+                </tr>
+              
+                <tr>
+                  <td>to</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq to :- to whome the mail should be sent
+/ For Eaxmple: dododuck@gmail.com </p></td>
+                </tr>
+              
+                <tr>
+                  <td>message</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>message body </p></td>
                 </tr>
               
             </tbody>
@@ -458,21 +792,19 @@
             <tbody>
               
                 <tr>
-                  <td>identifier</td>
-                  <td><a href="#github.com.oojob.protobuf.Identifier">github.com.oojob.protobuf.Identifier</a></td>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>UserMailBox Identifier :- help&#39;s us to represent an base entity
-/ and identity uniquely </p></td>
+/ and identity uniquely
+/ mail :- mongodb generated ID </p></td>
                 </tr>
               
                 <tr>
-                  <td>contacts</td>
-                  <td><a href="#google.protobuf.Struct">google.protobuf.Struct</a></td>
-                  <td></td>
-                  <td><p>help&#39;s us to store and keep a refrence to all the mail trans.
-/ &lt;&#34;dododduck&#34;, &#34;i123disfjf&#34;&gt;
-/ this user had a conversation with dododuck whose mail trans are stored in
-/ MailBox with id as i123disfjf </p></td>
+                  <td>conversations</td>
+                  <td><a href="#mail.UserMailBox.Conversations">UserMailBox.Conversations</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
@@ -481,6 +813,157 @@
                   <td></td>
                   <td><p>It will provide you with addtional attachment of time based which which
 / will help you to analyze the life process of the entity it attached to </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.UserMailBox.Conversations">UserMailBox.Conversations</h3>
+        <p>tempate attribute data value</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#mail.UserMailBox.Conversations.ValuesEntry">UserMailBox.Conversations.ValuesEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.UserMailBox.Conversations.ValuesEntry">UserMailBox.Conversations.ValuesEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#mail.MailConversation">MailConversation</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.UserMessageBox">UserMessageBox</h3>
+        <p>UserMailBox help's us to store all the conversations of one user</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>UserMailBox Identifier :- help&#39;s us to represent an base entity
+/ and identity uniquely
+/ mail :- mongodb generated ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>conversations</td>
+                  <td><a href="#mail.UserMessageBox.Conversations">UserMessageBox.Conversations</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>metadata</td>
+                  <td><a href="#github.com.oojob.protobuf.Metadata">github.com.oojob.protobuf.Metadata</a></td>
+                  <td></td>
+                  <td><p>It will provide you with addtional attachment of time based which which
+/ will help you to analyze the life process of the entity it attached to </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.UserMessageBox.Conversations">UserMessageBox.Conversations</h3>
+        <p>tempate attribute data value</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#mail.UserMessageBox.Conversations.ValuesEntry">UserMessageBox.Conversations.ValuesEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.UserMessageBox.Conversations.ValuesEntry">UserMessageBox.Conversations.ValuesEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#mail.MessageConversation">MessageConversation</a></td>
+                  <td></td>
+                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -505,10 +988,52 @@
           <tbody>
             
               <tr>
+                <td>ReadMail</td>
+                <td><a href="#github.com.oojob.protobuf.Id">.github.com.oojob.protobuf.Id</a></td>
+                <td><a href="#mail.Mail">Mail</a></td>
+                <td><p>read mail request</p></td>
+              </tr>
+            
+              <tr>
                 <td>SendMail</td>
                 <td><a href="#mail.SendMailReq">SendMailReq</a></td>
-                <td><a href="#mail.SendMailRes">SendMailRes</a></td>
+                <td><a href="#github.com.oojob.protobuf.DefaultResponse">.github.com.oojob.protobuf.DefaultResponse</a></td>
                 <td><p>Used to send mail to any based on any mail template</p></td>
+              </tr>
+            
+              <tr>
+                <td>SendMessage</td>
+                <td><a href="#mail.SendMessageReq">SendMessageReq</a></td>
+                <td><a href="#github.com.oojob.protobuf.DefaultResponse">.github.com.oojob.protobuf.DefaultResponse</a></td>
+                <td><p>send message</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMailNotification</td>
+                <td><a href="#github.com.oojob.protobuf.Id">.github.com.oojob.protobuf.Id</a></td>
+                <td><a href="#mail.MailNotifications">MailNotifications</a></td>
+                <td><p>Used for accessing message notification settings</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMailBox</td>
+                <td><a href="#github.com.oojob.protobuf.Id">.github.com.oojob.protobuf.Id</a></td>
+                <td><a href="#mail.UserMailBox">UserMailBox</a></td>
+                <td><p>Get MailBox</p></td>
+              </tr>
+            
+              <tr>
+                <td>GetMessageBox</td>
+                <td><a href="#github.com.oojob.protobuf.Id">.github.com.oojob.protobuf.Id</a></td>
+                <td><a href="#mail.UserMessageBox">UserMessageBox</a></td>
+                <td><p>Get MessageBox</p></td>
+              </tr>
+            
+              <tr>
+                <td>SetMailNotification</td>
+                <td><a href="#mail.MailNotifications">MailNotifications</a></td>
+                <td><a href="#github.com.oojob.protobuf.DefaultResponse">.github.com.oojob.protobuf.DefaultResponse</a></td>
+                <td><p>Used for accessing message notification settings</p></td>
               </tr>
             
               <tr>

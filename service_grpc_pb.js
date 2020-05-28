@@ -18,6 +18,18 @@ var github_com_oojob_protobuf_health_pb = require('@oojob/oojob-protobuf/health_
 var github_com_oojob_protobuf_metadata_pb = require('@oojob/oojob-protobuf/metadata_pb.js');
 var github_com_oojob_protobuf_system_pb = require('@oojob/oojob-protobuf/system_pb.js');
 var google_protobuf_struct_pb = require('google-protobuf/google/protobuf/struct_pb.js');
+var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
+
+function serialize_github_com_oojob_protobuf_DefaultResponse(arg) {
+  if (!(arg instanceof github_com_oojob_protobuf_system_pb.DefaultResponse)) {
+    throw new Error('Expected argument of type github.com.oojob.protobuf.DefaultResponse');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_github_com_oojob_protobuf_DefaultResponse(buffer_arg) {
+  return github_com_oojob_protobuf_system_pb.DefaultResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
 
 function serialize_github_com_oojob_protobuf_HealthCheckRequest(arg) {
   if (!(arg instanceof github_com_oojob_protobuf_health_pb.HealthCheckRequest)) {
@@ -41,6 +53,39 @@ function deserialize_github_com_oojob_protobuf_HealthCheckResponse(buffer_arg) {
   return github_com_oojob_protobuf_health_pb.HealthCheckResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_github_com_oojob_protobuf_Id(arg) {
+  if (!(arg instanceof github_com_oojob_protobuf_system_pb.Id)) {
+    throw new Error('Expected argument of type github.com.oojob.protobuf.Id');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_github_com_oojob_protobuf_Id(buffer_arg) {
+  return github_com_oojob_protobuf_system_pb.Id.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_mail_Mail(arg) {
+  if (!(arg instanceof services_mail_service_pb.Mail)) {
+    throw new Error('Expected argument of type mail.Mail');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_mail_Mail(buffer_arg) {
+  return services_mail_service_pb.Mail.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_mail_MailNotifications(arg) {
+  if (!(arg instanceof services_mail_service_pb.MailNotifications)) {
+    throw new Error('Expected argument of type mail.MailNotifications');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_mail_MailNotifications(buffer_arg) {
+  return services_mail_service_pb.MailNotifications.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_mail_SendMailReq(arg) {
   if (!(arg instanceof services_mail_service_pb.SendMailReq)) {
     throw new Error('Expected argument of type mail.SendMailReq');
@@ -52,15 +97,37 @@ function deserialize_mail_SendMailReq(buffer_arg) {
   return services_mail_service_pb.SendMailReq.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_mail_SendMailRes(arg) {
-  if (!(arg instanceof services_mail_service_pb.SendMailRes)) {
-    throw new Error('Expected argument of type mail.SendMailRes');
+function serialize_mail_SendMessageReq(arg) {
+  if (!(arg instanceof services_mail_service_pb.SendMessageReq)) {
+    throw new Error('Expected argument of type mail.SendMessageReq');
   }
   return new Buffer(arg.serializeBinary());
 }
 
-function deserialize_mail_SendMailRes(buffer_arg) {
-  return services_mail_service_pb.SendMailRes.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_mail_SendMessageReq(buffer_arg) {
+  return services_mail_service_pb.SendMessageReq.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_mail_UserMailBox(arg) {
+  if (!(arg instanceof services_mail_service_pb.UserMailBox)) {
+    throw new Error('Expected argument of type mail.UserMailBox');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_mail_UserMailBox(buffer_arg) {
+  return services_mail_service_pb.UserMailBox.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_mail_UserMessageBox(arg) {
+  if (!(arg instanceof services_mail_service_pb.UserMessageBox)) {
+    throw new Error('Expected argument of type mail.UserMessageBox');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_mail_UserMessageBox(buffer_arg) {
+  return services_mail_service_pb.UserMessageBox.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 
@@ -76,17 +143,89 @@ function deserialize_mail_SendMailRes(buffer_arg) {
 //  - sending as formal mail exchange text
 // any other service need to send any mail's based on it's requirement
 var MailServiceService = exports.MailServiceService = {
+  // / read mail request
+  readMail: {
+    path: '/mail.MailService/ReadMail',
+    requestStream: false,
+    responseStream: false,
+    requestType: github_com_oojob_protobuf_system_pb.Id,
+    responseType: services_mail_service_pb.Mail,
+    requestSerialize: serialize_github_com_oojob_protobuf_Id,
+    requestDeserialize: deserialize_github_com_oojob_protobuf_Id,
+    responseSerialize: serialize_mail_Mail,
+    responseDeserialize: deserialize_mail_Mail,
+  },
   // / Used to send mail to any based on any mail template
   sendMail: {
     path: '/mail.MailService/SendMail',
     requestStream: false,
     responseStream: false,
     requestType: services_mail_service_pb.SendMailReq,
-    responseType: services_mail_service_pb.SendMailRes,
+    responseType: github_com_oojob_protobuf_system_pb.DefaultResponse,
     requestSerialize: serialize_mail_SendMailReq,
     requestDeserialize: deserialize_mail_SendMailReq,
-    responseSerialize: serialize_mail_SendMailRes,
-    responseDeserialize: deserialize_mail_SendMailRes,
+    responseSerialize: serialize_github_com_oojob_protobuf_DefaultResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_DefaultResponse,
+  },
+  // / send message
+  sendMessage: {
+    path: '/mail.MailService/SendMessage',
+    requestStream: false,
+    responseStream: false,
+    requestType: services_mail_service_pb.SendMessageReq,
+    responseType: github_com_oojob_protobuf_system_pb.DefaultResponse,
+    requestSerialize: serialize_mail_SendMessageReq,
+    requestDeserialize: deserialize_mail_SendMessageReq,
+    responseSerialize: serialize_github_com_oojob_protobuf_DefaultResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_DefaultResponse,
+  },
+  // / Used for accessing message notification settings
+  getMailNotification: {
+    path: '/mail.MailService/GetMailNotification',
+    requestStream: false,
+    responseStream: false,
+    requestType: github_com_oojob_protobuf_system_pb.Id,
+    responseType: services_mail_service_pb.MailNotifications,
+    requestSerialize: serialize_github_com_oojob_protobuf_Id,
+    requestDeserialize: deserialize_github_com_oojob_protobuf_Id,
+    responseSerialize: serialize_mail_MailNotifications,
+    responseDeserialize: deserialize_mail_MailNotifications,
+  },
+  // / Get MailBox
+  getMailBox: {
+    path: '/mail.MailService/GetMailBox',
+    requestStream: false,
+    responseStream: false,
+    requestType: github_com_oojob_protobuf_system_pb.Id,
+    responseType: services_mail_service_pb.UserMailBox,
+    requestSerialize: serialize_github_com_oojob_protobuf_Id,
+    requestDeserialize: deserialize_github_com_oojob_protobuf_Id,
+    responseSerialize: serialize_mail_UserMailBox,
+    responseDeserialize: deserialize_mail_UserMailBox,
+  },
+  // / Get MessageBox
+  getMessageBox: {
+    path: '/mail.MailService/GetMessageBox',
+    requestStream: false,
+    responseStream: false,
+    requestType: github_com_oojob_protobuf_system_pb.Id,
+    responseType: services_mail_service_pb.UserMessageBox,
+    requestSerialize: serialize_github_com_oojob_protobuf_Id,
+    requestDeserialize: deserialize_github_com_oojob_protobuf_Id,
+    responseSerialize: serialize_mail_UserMessageBox,
+    responseDeserialize: deserialize_mail_UserMessageBox,
+  },
+  // / Used for accessing message notification settings
+  setMailNotification: {
+    path: '/mail.MailService/SetMailNotification',
+    requestStream: false,
+    responseStream: false,
+    requestType: services_mail_service_pb.MailNotifications,
+    responseType: github_com_oojob_protobuf_system_pb.DefaultResponse,
+    requestSerialize: serialize_mail_MailNotifications,
+    requestDeserialize: deserialize_mail_MailNotifications,
+    responseSerialize: serialize_github_com_oojob_protobuf_DefaultResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_DefaultResponse,
   },
   // / Used to check health status of the running microservice
   check: {
