@@ -215,6 +215,14 @@
                 </li>
               
                 <li>
+                  <a href="#mail.SendMailReq.Variables"><span class="badge">M</span>SendMailReq.Variables</a>
+                </li>
+              
+                <li>
+                  <a href="#mail.SendMailReq.Variables.ValuesEntry"><span class="badge">M</span>SendMailReq.Variables.ValuesEntry</a>
+                </li>
+              
+                <li>
                   <a href="#mail.SendMessageReq"><span class="badge">M</span>SendMessageReq</a>
                 </li>
               
@@ -707,6 +715,13 @@
             <tbody>
               
                 <tr>
+                  <td>user_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>user identification </p></td>
+                </tr>
+              
+                <tr>
                   <td>from</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
@@ -745,10 +760,10 @@
                 </tr>
               
                 <tr>
-                  <td>variable</td>
-                  <td><a href="#google.protobuf.Struct">google.protobuf.Struct</a></td>
-                  <td></td>
-                  <td><p>your variable&#39;s used for message construction based on template creation </p></td>
+                  <td>variables</td>
+                  <td><a href="#mail.SendMailReq.Variables">SendMailReq.Variables</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
@@ -769,6 +784,61 @@
 
         
       
+        <h3 id="mail.SendMailReq.Variables">SendMailReq.Variables</h3>
+        <p>your variable's used for message construction based on template creation</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>values</td>
+                  <td><a href="#mail.SendMailReq.Variables.ValuesEntry">SendMailReq.Variables.ValuesEntry</a></td>
+                  <td>repeated</td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="mail.SendMailReq.Variables.ValuesEntry">SendMailReq.Variables.ValuesEntry</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>key</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>value</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="mail.SendMessageReq">SendMessageReq</h3>
         <p></p>
 
@@ -778,6 +848,13 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>user identification </p></td>
+                </tr>
               
                 <tr>
                   <td>from</td>

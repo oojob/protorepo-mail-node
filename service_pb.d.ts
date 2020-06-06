@@ -402,6 +402,9 @@ export namespace Mail {
 }
 
 export class SendMailReq extends jspb.Message {
+  getUserId(): string;
+  setUserId(value: string): void;
+
   getFrom(): string;
   setFrom(value: string): void;
 
@@ -419,10 +422,10 @@ export class SendMailReq extends jspb.Message {
   setAttachmentsList(value: Array<github_com_oojob_protobuf_system_pb.Attachment>): void;
   addAttachments(value?: github_com_oojob_protobuf_system_pb.Attachment, index?: number): github_com_oojob_protobuf_system_pb.Attachment;
 
-  hasVariable(): boolean;
-  clearVariable(): void;
-  getVariable(): google_protobuf_struct_pb.Struct | undefined;
-  setVariable(value?: google_protobuf_struct_pb.Struct): void;
+  clearVariablesList(): void;
+  getVariablesList(): Array<SendMailReq.Variables>;
+  setVariablesList(value: Array<SendMailReq.Variables>): void;
+  addVariables(value?: SendMailReq.Variables, index?: number): SendMailReq.Variables;
 
   getTemplate(): string;
   setTemplate(value: string): void;
@@ -439,17 +442,40 @@ export class SendMailReq extends jspb.Message {
 
 export namespace SendMailReq {
   export type AsObject = {
+    userId: string,
     from: string,
     to: string,
     subject: string,
     message: string,
     attachmentsList: Array<github_com_oojob_protobuf_system_pb.Attachment.AsObject>,
-    variable?: google_protobuf_struct_pb.Struct.AsObject,
+    variablesList: Array<SendMailReq.Variables.AsObject>,
     template: string,
+  }
+
+  export class Variables extends jspb.Message {
+    getValuesMap(): jspb.Map<string, string>;
+    clearValuesMap(): void;
+    serializeBinary(): Uint8Array;
+    toObject(includeInstance?: boolean): Variables.AsObject;
+    static toObject(includeInstance: boolean, msg: Variables): Variables.AsObject;
+    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+    static serializeBinaryToWriter(message: Variables, writer: jspb.BinaryWriter): void;
+    static deserializeBinary(bytes: Uint8Array): Variables;
+    static deserializeBinaryFromReader(message: Variables, reader: jspb.BinaryReader): Variables;
+  }
+
+  export namespace Variables {
+    export type AsObject = {
+      valuesMap: Array<[string, string]>,
+    }
   }
 }
 
 export class SendMessageReq extends jspb.Message {
+  getUserId(): string;
+  setUserId(value: string): void;
+
   getFrom(): string;
   setFrom(value: string): void;
 
@@ -471,6 +497,7 @@ export class SendMessageReq extends jspb.Message {
 
 export namespace SendMessageReq {
   export type AsObject = {
+    userId: string,
     from: string,
     to: string,
     message: string,
