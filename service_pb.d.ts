@@ -26,6 +26,11 @@ export class MailTemplate extends jspb.Message {
   getLogo(): string;
   setLogo(value: string): void;
 
+  hasMetadata(): boolean;
+  clearMetadata(): void;
+  getMetadata(): github_com_oojob_protobuf_metadata_pb.Metadata | undefined;
+  setMetadata(value?: github_com_oojob_protobuf_metadata_pb.Metadata): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): MailTemplate.AsObject;
   static toObject(includeInstance: boolean, msg: MailTemplate): MailTemplate.AsObject;
@@ -43,6 +48,7 @@ export namespace MailTemplate {
     primaryColor: string,
     secondaryColor: string,
     logo: string,
+    metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
   }
 
   export class Attributes extends jspb.Message {
@@ -156,6 +162,9 @@ export namespace Message {
 }
 
 export class MessageConversation extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
   getTo(): string;
   setTo(value: string): void;
 
@@ -181,6 +190,7 @@ export class MessageConversation extends jspb.Message {
 
 export namespace MessageConversation {
   export type AsObject = {
+    id: string,
     to: string,
     messagesList: Array<Message.AsObject>,
     metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
@@ -188,6 +198,9 @@ export namespace MessageConversation {
 }
 
 export class MailConversation extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
   getFrom(): string;
   setFrom(value: string): void;
 
@@ -222,6 +235,7 @@ export class MailConversation extends jspb.Message {
 
 export namespace MailConversation {
   export type AsObject = {
+    id: string,
     from: string,
     to: string,
     subject: string,
@@ -337,6 +351,9 @@ export class Mail extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
+  getUserId(): string;
+  setUserId(value: string): void;
+
   hasNotifications(): boolean;
   clearNotifications(): void;
   getNotifications(): MailNotifications | undefined;
@@ -375,6 +392,7 @@ export class Mail extends jspb.Message {
 export namespace Mail {
   export type AsObject = {
     id: string,
+    userId: string,
     notifications?: MailNotifications.AsObject,
     mailTemplatesList: Array<MailTemplate.AsObject>,
     messages?: UserMessageBox.AsObject,
