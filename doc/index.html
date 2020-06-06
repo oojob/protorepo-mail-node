@@ -183,10 +183,6 @@
                 </li>
               
                 <li>
-                  <a href="#mail.MailConversation"><span class="badge">M</span>MailConversation</a>
-                </li>
-              
-                <li>
                   <a href="#mail.MailNotifications"><span class="badge">M</span>MailNotifications</a>
                 </li>
               
@@ -204,10 +200,6 @@
               
                 <li>
                   <a href="#mail.Message"><span class="badge">M</span>Message</a>
-                </li>
-              
-                <li>
-                  <a href="#mail.MessageConversation"><span class="badge">M</span>MessageConversation</a>
                 </li>
               
                 <li>
@@ -231,23 +223,7 @@
                 </li>
               
                 <li>
-                  <a href="#mail.UserMailBox.Conversations"><span class="badge">M</span>UserMailBox.Conversations</a>
-                </li>
-              
-                <li>
-                  <a href="#mail.UserMailBox.Conversations.ValuesEntry"><span class="badge">M</span>UserMailBox.Conversations.ValuesEntry</a>
-                </li>
-              
-                <li>
                   <a href="#mail.UserMessageBox"><span class="badge">M</span>UserMessageBox</a>
-                </li>
-              
-                <li>
-                  <a href="#mail.UserMessageBox.Conversations"><span class="badge">M</span>UserMessageBox.Conversations</a>
-                </li>
-              
-                <li>
-                  <a href="#mail.UserMessageBox.Conversations.ValuesEntry"><span class="badge">M</span>UserMessageBox.Conversations.ValuesEntry</a>
                 </li>
               
               
@@ -293,7 +269,7 @@
                   <td>user_id</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
-                  <td><p> </p></td>
+                  <td><p>user id </p></td>
                 </tr>
               
                 <tr>
@@ -313,14 +289,14 @@
                 <tr>
                   <td>messages</td>
                   <td><a href="#mail.UserMessageBox">UserMessageBox</a></td>
-                  <td></td>
+                  <td>repeated</td>
                   <td><p>messages </p></td>
                 </tr>
               
                 <tr>
                   <td>mails</td>
                   <td><a href="#mail.UserMailBox">UserMailBox</a></td>
-                  <td></td>
+                  <td>repeated</td>
                   <td><p>mails </p></td>
                 </tr>
               
@@ -331,80 +307,6 @@
                   <td><p>It will provide you with addtional attachment of time based which
 / which will help you to analyze the life process of the entity it
 / attached to </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="mail.MailConversation">MailConversation</h3>
-        <p>MailReq help's us to store one mail entity for future conversation refrence</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>unique identification </p></td>
-                </tr>
-              
-                <tr>
-                  <td>from</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>MailReq from :- from whose account the mail should be send.
-/ default&#39;s to: admin@oojob.io
-/ example values: abcapplied@gmail.com </p></td>
-                </tr>
-              
-                <tr>
-                  <td>to</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>MailReq to :- to whom the mail should be sent
-/ For Eaxmple: dododuck@gmail.com </p></td>
-                </tr>
-              
-                <tr>
-                  <td>subject</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>MailReq subject :- your mail subject </p></td>
-                </tr>
-              
-                <tr>
-                  <td>messages</td>
-                  <td><a href="#mail.Message">Message</a></td>
-                  <td>repeated</td>
-                  <td><p>all the mail conversations </p></td>
-                </tr>
-              
-                <tr>
-                  <td>template</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>MailReq template :- choose which template to attach with this mail
-/ data let&#39;s suppose we have 5 type&#39;s of mail template 1: for applying
-/ job 2: for company creation so this will take a value what type of
-/ template we have to choose to send the data
-/ default to oojob default template which is used to send default mail&#39;s </p></td>
-                </tr>
-              
-                <tr>
-                  <td>metadata</td>
-                  <td><a href="#github.com.oojob.protobuf.Metadata">github.com.oojob.protobuf.Metadata</a></td>
-                  <td></td>
-                  <td><p>It will provide you with addtional attachment of time based which which
-/ will help you to analyze the life process of the entity it attached to </p></td>
                 </tr>
               
             </tbody>
@@ -657,53 +559,6 @@
 
         
       
-        <h3 id="mail.MessageConversation">MessageConversation</h3>
-        <p>MessageConversation help's us to store message conversation</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>id</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>unique identification </p></td>
-                </tr>
-              
-                <tr>
-                  <td>to</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>MailReq to :- to whom the mail should be sent
-/ For Eaxmple: dododuck@gmail.com </p></td>
-                </tr>
-              
-                <tr>
-                  <td>messages</td>
-                  <td><a href="#mail.Message">Message</a></td>
-                  <td>repeated</td>
-                  <td><p>all the mail conversations </p></td>
-                </tr>
-              
-                <tr>
-                  <td>metadata</td>
-                  <td><a href="#github.com.oojob.protobuf.Metadata">github.com.oojob.protobuf.Metadata</a></td>
-                  <td></td>
-                  <td><p>It will provide you with addtional attachment of time based which which
-/ will help you to analyze the life process of the entity it attached to </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
         <h3 id="mail.SendMailReq">SendMailReq</h3>
         <p>MailReq it help's us to define request object for mail sending task</p>
 
@@ -907,10 +762,45 @@
                 </tr>
               
                 <tr>
-                  <td>conversations</td>
-                  <td><a href="#mail.UserMailBox.Conversations">UserMailBox.Conversations</a></td>
+                  <td>from</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq from :- from whose account the mail should be send.
+/ default&#39;s to: admin@oojob.io
+/ example values: abcapplied@gmail.com </p></td>
+                </tr>
+              
+                <tr>
+                  <td>to</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq to :- to whom the mail should be sent
+/ For Eaxmple: dododuck@gmail.com </p></td>
+                </tr>
+              
+                <tr>
+                  <td>subject</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq subject :- your mail subject </p></td>
+                </tr>
+              
+                <tr>
+                  <td>messages</td>
+                  <td><a href="#mail.Message">Message</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>all the mail conversations </p></td>
+                </tr>
+              
+                <tr>
+                  <td>template</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq template :- choose which template to attach with this mail
+/ data let&#39;s suppose we have 5 type&#39;s of mail template 1: for applying
+/ job 2: for company creation so this will take a value what type of
+/ template we have to choose to send the data
+/ default to oojob default template which is used to send default mail&#39;s </p></td>
                 </tr>
               
                 <tr>
@@ -919,61 +809,6 @@
                   <td></td>
                   <td><p>It will provide you with addtional attachment of time based which which
 / will help you to analyze the life process of the entity it attached to </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="mail.UserMailBox.Conversations">UserMailBox.Conversations</h3>
-        <p>tempate attribute data value</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>values</td>
-                  <td><a href="#mail.UserMailBox.Conversations.ValuesEntry">UserMailBox.Conversations.ValuesEntry</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="mail.UserMailBox.Conversations.ValuesEntry">UserMailBox.Conversations.ValuesEntry</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#mail.MailConversation">MailConversation</a></td>
-                  <td></td>
-                  <td><p> </p></td>
                 </tr>
               
             </tbody>
@@ -1003,10 +838,18 @@
                 </tr>
               
                 <tr>
-                  <td>conversations</td>
-                  <td><a href="#mail.UserMessageBox.Conversations">UserMessageBox.Conversations</a></td>
+                  <td>to</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq to :- to whom the mail should be sent
+/ For Eaxmple: dododuck@gmail.com </p></td>
+                </tr>
+              
+                <tr>
+                  <td>messages</td>
+                  <td><a href="#mail.Message">Message</a></td>
                   <td>repeated</td>
-                  <td><p> </p></td>
+                  <td><p>all the mail conversations </p></td>
                 </tr>
               
                 <tr>
@@ -1015,61 +858,6 @@
                   <td></td>
                   <td><p>It will provide you with addtional attachment of time based which which
 / will help you to analyze the life process of the entity it attached to </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="mail.UserMessageBox.Conversations">UserMessageBox.Conversations</h3>
-        <p>tempate attribute data value</p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>values</td>
-                  <td><a href="#mail.UserMessageBox.Conversations.ValuesEntry">UserMessageBox.Conversations.ValuesEntry</a></td>
-                  <td>repeated</td>
-                  <td><p> </p></td>
-                </tr>
-              
-            </tbody>
-          </table>
-
-          
-
-        
-      
-        <h3 id="mail.UserMessageBox.Conversations.ValuesEntry">UserMessageBox.Conversations.ValuesEntry</h3>
-        <p></p>
-
-        
-          <table class="field-table">
-            <thead>
-              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
-            </thead>
-            <tbody>
-              
-                <tr>
-                  <td>key</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p> </p></td>
-                </tr>
-              
-                <tr>
-                  <td>value</td>
-                  <td><a href="#mail.MessageConversation">MessageConversation</a></td>
-                  <td></td>
-                  <td><p> </p></td>
                 </tr>
               
             </tbody>

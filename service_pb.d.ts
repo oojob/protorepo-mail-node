@@ -161,43 +161,7 @@ export namespace Message {
   }
 }
 
-export class MessageConversation extends jspb.Message {
-  getId(): string;
-  setId(value: string): void;
-
-  getTo(): string;
-  setTo(value: string): void;
-
-  clearMessagesList(): void;
-  getMessagesList(): Array<Message>;
-  setMessagesList(value: Array<Message>): void;
-  addMessages(value?: Message, index?: number): Message;
-
-  hasMetadata(): boolean;
-  clearMetadata(): void;
-  getMetadata(): github_com_oojob_protobuf_metadata_pb.Metadata | undefined;
-  setMetadata(value?: github_com_oojob_protobuf_metadata_pb.Metadata): void;
-
-  serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): MessageConversation.AsObject;
-  static toObject(includeInstance: boolean, msg: MessageConversation): MessageConversation.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: MessageConversation, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): MessageConversation;
-  static deserializeBinaryFromReader(message: MessageConversation, reader: jspb.BinaryReader): MessageConversation;
-}
-
-export namespace MessageConversation {
-  export type AsObject = {
-    id: string,
-    to: string,
-    messagesList: Array<Message.AsObject>,
-    metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
-  }
-}
-
-export class MailConversation extends jspb.Message {
+export class UserMailBox extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
@@ -224,42 +188,6 @@ export class MailConversation extends jspb.Message {
   setMetadata(value?: github_com_oojob_protobuf_metadata_pb.Metadata): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): MailConversation.AsObject;
-  static toObject(includeInstance: boolean, msg: MailConversation): MailConversation.AsObject;
-  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: MailConversation, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): MailConversation;
-  static deserializeBinaryFromReader(message: MailConversation, reader: jspb.BinaryReader): MailConversation;
-}
-
-export namespace MailConversation {
-  export type AsObject = {
-    id: string,
-    from: string,
-    to: string,
-    subject: string,
-    messagesList: Array<Message.AsObject>,
-    template: string,
-    metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
-  }
-}
-
-export class UserMailBox extends jspb.Message {
-  getId(): string;
-  setId(value: string): void;
-
-  clearConversationsList(): void;
-  getConversationsList(): Array<UserMailBox.Conversations>;
-  setConversationsList(value: Array<UserMailBox.Conversations>): void;
-  addConversations(value?: UserMailBox.Conversations, index?: number): UserMailBox.Conversations;
-
-  hasMetadata(): boolean;
-  clearMetadata(): void;
-  getMetadata(): github_com_oojob_protobuf_metadata_pb.Metadata | undefined;
-  setMetadata(value?: github_com_oojob_protobuf_metadata_pb.Metadata): void;
-
-  serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): UserMailBox.AsObject;
   static toObject(includeInstance: boolean, msg: UserMailBox): UserMailBox.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
@@ -272,27 +200,12 @@ export class UserMailBox extends jspb.Message {
 export namespace UserMailBox {
   export type AsObject = {
     id: string,
-    conversationsList: Array<UserMailBox.Conversations.AsObject>,
+    from: string,
+    to: string,
+    subject: string,
+    messagesList: Array<Message.AsObject>,
+    template: string,
     metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
-  }
-
-  export class Conversations extends jspb.Message {
-    getValuesMap(): jspb.Map<string, MailConversation>;
-    clearValuesMap(): void;
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Conversations.AsObject;
-    static toObject(includeInstance: boolean, msg: Conversations): Conversations.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Conversations, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Conversations;
-    static deserializeBinaryFromReader(message: Conversations, reader: jspb.BinaryReader): Conversations;
-  }
-
-  export namespace Conversations {
-    export type AsObject = {
-      valuesMap: Array<[string, MailConversation.AsObject]>,
-    }
   }
 }
 
@@ -300,10 +213,13 @@ export class UserMessageBox extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
-  clearConversationsList(): void;
-  getConversationsList(): Array<UserMessageBox.Conversations>;
-  setConversationsList(value: Array<UserMessageBox.Conversations>): void;
-  addConversations(value?: UserMessageBox.Conversations, index?: number): UserMessageBox.Conversations;
+  getTo(): string;
+  setTo(value: string): void;
+
+  clearMessagesList(): void;
+  getMessagesList(): Array<Message>;
+  setMessagesList(value: Array<Message>): void;
+  addMessages(value?: Message, index?: number): Message;
 
   hasMetadata(): boolean;
   clearMetadata(): void;
@@ -323,27 +239,9 @@ export class UserMessageBox extends jspb.Message {
 export namespace UserMessageBox {
   export type AsObject = {
     id: string,
-    conversationsList: Array<UserMessageBox.Conversations.AsObject>,
+    to: string,
+    messagesList: Array<Message.AsObject>,
     metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
-  }
-
-  export class Conversations extends jspb.Message {
-    getValuesMap(): jspb.Map<string, MessageConversation>;
-    clearValuesMap(): void;
-    serializeBinary(): Uint8Array;
-    toObject(includeInstance?: boolean): Conversations.AsObject;
-    static toObject(includeInstance: boolean, msg: Conversations): Conversations.AsObject;
-    static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
-    static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-    static serializeBinaryToWriter(message: Conversations, writer: jspb.BinaryWriter): void;
-    static deserializeBinary(bytes: Uint8Array): Conversations;
-    static deserializeBinaryFromReader(message: Conversations, reader: jspb.BinaryReader): Conversations;
-  }
-
-  export namespace Conversations {
-    export type AsObject = {
-      valuesMap: Array<[string, MessageConversation.AsObject]>,
-    }
   }
 }
 
@@ -364,15 +262,15 @@ export class Mail extends jspb.Message {
   setMailTemplatesList(value: Array<MailTemplate>): void;
   addMailTemplates(value?: MailTemplate, index?: number): MailTemplate;
 
-  hasMessages(): boolean;
-  clearMessages(): void;
-  getMessages(): UserMessageBox | undefined;
-  setMessages(value?: UserMessageBox): void;
+  clearMessagesList(): void;
+  getMessagesList(): Array<UserMessageBox>;
+  setMessagesList(value: Array<UserMessageBox>): void;
+  addMessages(value?: UserMessageBox, index?: number): UserMessageBox;
 
-  hasMails(): boolean;
-  clearMails(): void;
-  getMails(): UserMailBox | undefined;
-  setMails(value?: UserMailBox): void;
+  clearMailsList(): void;
+  getMailsList(): Array<UserMailBox>;
+  setMailsList(value: Array<UserMailBox>): void;
+  addMails(value?: UserMailBox, index?: number): UserMailBox;
 
   hasMetadata(): boolean;
   clearMetadata(): void;
@@ -395,8 +293,8 @@ export namespace Mail {
     userId: string,
     notifications?: MailNotifications.AsObject,
     mailTemplatesList: Array<MailTemplate.AsObject>,
-    messages?: UserMessageBox.AsObject,
-    mails?: UserMailBox.AsObject,
+    messagesList: Array<UserMessageBox.AsObject>,
+    mailsList: Array<UserMailBox.AsObject>,
     metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
   }
 }
