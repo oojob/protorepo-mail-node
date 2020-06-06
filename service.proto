@@ -20,14 +20,6 @@ import "google/protobuf/timestamp.proto";
 package mail;
 
 /**
- *
- *               * => MailTemplates
- * user => mail  * => MailBox
- *               * => MailNotification
- *
- */
-
-/**
  * MailTemplate help's us to define all mail templates used by company for
  * sending mails
  */
