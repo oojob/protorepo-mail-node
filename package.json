@@ -1,6 +1,6 @@
 {
   "name": "@oojob/protorepo-mail-node",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "",
   "main": "service_grpc_pb.js",
   "directories": {
@@ -23,11 +23,10 @@
   "homepage": "https://github.com/oojob/protorepo-mail-node#readme",
   "devDependencies": {
     "@types/google-protobuf": "^3.7.2",
-    "standard-version": "^8.0.0"
-  },
-  "dependencies": {
     "@oojob/oojob-protobuf": "0.0.9",
     "google-protobuf": "^3.12.2",
-    "grpc": "^1.24.3"
-  }
+    "grpc": "^1.24.3",
+    "standard-version": "^8.0.0"
+  },
+  "dependencies": {}
 }
