@@ -370,6 +370,28 @@ export namespace SendMailReq {
   }
 }
 
+export class SendBulkMailReq extends jspb.Message {
+  clearMailRequestsList(): void;
+  getMailRequestsList(): Array<SendMailReq>;
+  setMailRequestsList(value: Array<SendMailReq>): void;
+  addMailRequests(value?: SendMailReq, index?: number): SendMailReq;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SendBulkMailReq.AsObject;
+  static toObject(includeInstance: boolean, msg: SendBulkMailReq): SendBulkMailReq.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: SendBulkMailReq, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SendBulkMailReq;
+  static deserializeBinaryFromReader(message: SendBulkMailReq, reader: jspb.BinaryReader): SendBulkMailReq;
+}
+
+export namespace SendBulkMailReq {
+  export type AsObject = {
+    mailRequestsList: Array<SendMailReq.AsObject>,
+  }
+}
+
 export class SendMessageReq extends jspb.Message {
   getUserId(): string;
   setUserId(value: string): void;

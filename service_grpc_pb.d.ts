@@ -9,6 +9,8 @@ import * as github_com_oojob_protobuf_system_pb from "@oojob/oojob-protobuf/syst
 import * as grpc from "grpc";
 
 interface IMailServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
+  sendSystemMail: grpc.MethodDefinition<services_mail_service_pb.SendMailReq, github_com_oojob_protobuf_system_pb.DefaultResponse>;
+  sendBulkSystemMail: grpc.MethodDefinition<services_mail_service_pb.SendBulkMailReq, github_com_oojob_protobuf_system_pb.DefaultResponse>;
   readMail: grpc.MethodDefinition<github_com_oojob_protobuf_system_pb.Id, services_mail_service_pb.Mail>;
   sendMail: grpc.MethodDefinition<services_mail_service_pb.SendMailReq, github_com_oojob_protobuf_system_pb.DefaultResponse>;
   sendMessage: grpc.MethodDefinition<services_mail_service_pb.SendMessageReq, github_com_oojob_protobuf_system_pb.DefaultResponse>;
@@ -24,6 +26,12 @@ export const MailServiceService: IMailServiceService;
 
 export class MailServiceClient extends grpc.Client {
   constructor(address: string, credentials: grpc.ChannelCredentials, options?: object);
+  sendSystemMail(argument: services_mail_service_pb.SendMailReq, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.DefaultResponse>): grpc.ClientUnaryCall;
+  sendSystemMail(argument: services_mail_service_pb.SendMailReq, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.DefaultResponse>): grpc.ClientUnaryCall;
+  sendSystemMail(argument: services_mail_service_pb.SendMailReq, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.DefaultResponse>): grpc.ClientUnaryCall;
+  sendBulkSystemMail(argument: services_mail_service_pb.SendBulkMailReq, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.DefaultResponse>): grpc.ClientUnaryCall;
+  sendBulkSystemMail(argument: services_mail_service_pb.SendBulkMailReq, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.DefaultResponse>): grpc.ClientUnaryCall;
+  sendBulkSystemMail(argument: services_mail_service_pb.SendBulkMailReq, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.DefaultResponse>): grpc.ClientUnaryCall;
   readMail(argument: github_com_oojob_protobuf_system_pb.Id, callback: grpc.requestCallback<services_mail_service_pb.Mail>): grpc.ClientUnaryCall;
   readMail(argument: github_com_oojob_protobuf_system_pb.Id, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<services_mail_service_pb.Mail>): grpc.ClientUnaryCall;
   readMail(argument: github_com_oojob_protobuf_system_pb.Id, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<services_mail_service_pb.Mail>): grpc.ClientUnaryCall;

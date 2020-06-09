@@ -86,6 +86,17 @@ function deserialize_mail_MailNotifications(buffer_arg) {
   return services_mail_service_pb.MailNotifications.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_mail_SendBulkMailReq(arg) {
+  if (!(arg instanceof services_mail_service_pb.SendBulkMailReq)) {
+    throw new Error('Expected argument of type mail.SendBulkMailReq');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_mail_SendBulkMailReq(buffer_arg) {
+  return services_mail_service_pb.SendBulkMailReq.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_mail_SendMailReq(arg) {
   if (!(arg instanceof services_mail_service_pb.SendMailReq)) {
     throw new Error('Expected argument of type mail.SendMailReq');
@@ -143,6 +154,29 @@ function deserialize_mail_UserMessageBox(buffer_arg) {
 //  - sending as formal mail exchange text
 // any other service need to send any mail's based on it's requirement
 var MailServiceService = exports.MailServiceService = {
+  // / system generated mail
+  sendSystemMail: {
+    path: '/mail.MailService/SendSystemMail',
+    requestStream: false,
+    responseStream: false,
+    requestType: services_mail_service_pb.SendMailReq,
+    responseType: github_com_oojob_protobuf_system_pb.DefaultResponse,
+    requestSerialize: serialize_mail_SendMailReq,
+    requestDeserialize: deserialize_mail_SendMailReq,
+    responseSerialize: serialize_github_com_oojob_protobuf_DefaultResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_DefaultResponse,
+  },
+  sendBulkSystemMail: {
+    path: '/mail.MailService/SendBulkSystemMail',
+    requestStream: false,
+    responseStream: false,
+    requestType: services_mail_service_pb.SendBulkMailReq,
+    responseType: github_com_oojob_protobuf_system_pb.DefaultResponse,
+    requestSerialize: serialize_mail_SendBulkMailReq,
+    requestDeserialize: deserialize_mail_SendBulkMailReq,
+    responseSerialize: serialize_github_com_oojob_protobuf_DefaultResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_DefaultResponse,
+  },
   // / read mail request
   readMail: {
     path: '/mail.MailService/ReadMail',
