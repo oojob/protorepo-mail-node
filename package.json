@@ -1,6 +1,6 @@
 {
   "name": "@oojob/protorepo-mail-node",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "",
   "main": "service_grpc_pb.js",
   "directories": {
