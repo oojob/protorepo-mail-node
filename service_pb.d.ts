@@ -177,6 +177,9 @@ export class UserMailBox extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
+  getUserId(): string;
+  setUserId(value: string): void;
+
   getSubject(): string;
   setSubject(value: string): void;
 
@@ -206,6 +209,7 @@ export class UserMailBox extends jspb.Message {
 export namespace UserMailBox {
   export type AsObject = {
     id: string,
+    userId: string,
     subject: string,
     messagesList: Array<Message.AsObject>,
     template: string,
@@ -219,9 +223,6 @@ export class UserMessageBox extends jspb.Message {
 
   getUserId(): string;
   setUserId(value: string): void;
-
-  getTo(): string;
-  setTo(value: string): void;
 
   clearMessagesList(): void;
   getMessagesList(): Array<Message>;
@@ -247,7 +248,6 @@ export namespace UserMessageBox {
   export type AsObject = {
     id: string,
     userId: string,
-    to: string,
     messagesList: Array<Message.AsObject>,
     metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
   }

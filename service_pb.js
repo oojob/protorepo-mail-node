@@ -1477,7 +1477,7 @@ proto.mail.Message.prototype.hasReadAt = function() {
  * @private {!Array<number>}
  * @const
  */
-proto.mail.UserMailBox.repeatedFields_ = [3];
+proto.mail.UserMailBox.repeatedFields_ = [4];
 
 
 
@@ -1511,10 +1511,11 @@ proto.mail.UserMailBox.prototype.toObject = function(opt_includeInstance) {
 proto.mail.UserMailBox.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    subject: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    userId: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    subject: jspb.Message.getFieldWithDefault(msg, 3, ""),
     messagesList: jspb.Message.toObjectList(msg.getMessagesList(),
     proto.mail.Message.toObject, includeInstance),
-    template: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    template: jspb.Message.getFieldWithDefault(msg, 5, ""),
     metadata: (f = msg.getMetadata()) && github_com_oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
   };
 
@@ -1558,18 +1559,22 @@ proto.mail.UserMailBox.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setSubject(value);
+      msg.setUserId(value);
       break;
     case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSubject(value);
+      break;
+    case 4:
       var value = new proto.mail.Message;
       reader.readMessage(value,proto.mail.Message.deserializeBinaryFromReader);
       msg.addMessages(value);
       break;
-    case 4:
+    case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setTemplate(value);
       break;
-    case 5:
+    case 6:
       var value = new github_com_oojob_protobuf_metadata_pb.Metadata;
       reader.readMessage(value,github_com_oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
       msg.setMetadata(value);
@@ -1610,17 +1615,24 @@ proto.mail.UserMailBox.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getSubject();
+  f = message.getUserId();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
+  f = message.getSubject();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
   f = message.getMessagesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      3,
+      4,
       f,
       proto.mail.Message.serializeBinaryToWriter
     );
@@ -1628,14 +1640,14 @@ proto.mail.UserMailBox.serializeBinaryToWriter = function(message, writer) {
   f = message.getTemplate();
   if (f.length > 0) {
     writer.writeString(
-      4,
+      5,
       f
     );
   }
   f = message.getMetadata();
   if (f != null) {
     writer.writeMessage(
-      5,
+      6,
       f,
       github_com_oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
     );
@@ -1662,10 +1674,10 @@ proto.mail.UserMailBox.prototype.setId = function(value) {
 
 
 /**
- * optional string subject = 2;
+ * optional string user_id = 2;
  * @return {string}
  */
-proto.mail.UserMailBox.prototype.getSubject = function() {
+proto.mail.UserMailBox.prototype.getUserId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -1674,18 +1686,36 @@ proto.mail.UserMailBox.prototype.getSubject = function() {
  * @param {string} value
  * @return {!proto.mail.UserMailBox} returns this
  */
-proto.mail.UserMailBox.prototype.setSubject = function(value) {
+proto.mail.UserMailBox.prototype.setUserId = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * repeated Message messages = 3;
+ * optional string subject = 3;
+ * @return {string}
+ */
+proto.mail.UserMailBox.prototype.getSubject = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.mail.UserMailBox} returns this
+ */
+proto.mail.UserMailBox.prototype.setSubject = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * repeated Message messages = 4;
  * @return {!Array<!proto.mail.Message>}
  */
 proto.mail.UserMailBox.prototype.getMessagesList = function() {
   return /** @type{!Array<!proto.mail.Message>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.mail.Message, 3));
+    jspb.Message.getRepeatedWrapperField(this, proto.mail.Message, 4));
 };
 
 
@@ -1694,7 +1724,7 @@ proto.mail.UserMailBox.prototype.getMessagesList = function() {
  * @return {!proto.mail.UserMailBox} returns this
 */
 proto.mail.UserMailBox.prototype.setMessagesList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 3, value);
+  return jspb.Message.setRepeatedWrapperField(this, 4, value);
 };
 
 
@@ -1704,7 +1734,7 @@ proto.mail.UserMailBox.prototype.setMessagesList = function(value) {
  * @return {!proto.mail.Message}
  */
 proto.mail.UserMailBox.prototype.addMessages = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.mail.Message, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.mail.Message, opt_index);
 };
 
 
@@ -1718,11 +1748,11 @@ proto.mail.UserMailBox.prototype.clearMessagesList = function() {
 
 
 /**
- * optional string template = 4;
+ * optional string template = 5;
  * @return {string}
  */
 proto.mail.UserMailBox.prototype.getTemplate = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
 
@@ -1731,17 +1761,17 @@ proto.mail.UserMailBox.prototype.getTemplate = function() {
  * @return {!proto.mail.UserMailBox} returns this
  */
 proto.mail.UserMailBox.prototype.setTemplate = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
 /**
- * optional github.com.oojob.protobuf.Metadata metadata = 5;
+ * optional github.com.oojob.protobuf.Metadata metadata = 6;
  * @return {?proto.github.com.oojob.protobuf.Metadata}
  */
 proto.mail.UserMailBox.prototype.getMetadata = function() {
   return /** @type{?proto.github.com.oojob.protobuf.Metadata} */ (
-    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_metadata_pb.Metadata, 5));
+    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_metadata_pb.Metadata, 6));
 };
 
 
@@ -1750,7 +1780,7 @@ proto.mail.UserMailBox.prototype.getMetadata = function() {
  * @return {!proto.mail.UserMailBox} returns this
 */
 proto.mail.UserMailBox.prototype.setMetadata = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 6, value);
 };
 
 
@@ -1768,7 +1798,7 @@ proto.mail.UserMailBox.prototype.clearMetadata = function() {
  * @return {boolean}
  */
 proto.mail.UserMailBox.prototype.hasMetadata = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
@@ -1778,7 +1808,7 @@ proto.mail.UserMailBox.prototype.hasMetadata = function() {
  * @private {!Array<number>}
  * @const
  */
-proto.mail.UserMessageBox.repeatedFields_ = [4];
+proto.mail.UserMessageBox.repeatedFields_ = [3];
 
 
 
@@ -1813,7 +1843,6 @@ proto.mail.UserMessageBox.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    to: jspb.Message.getFieldWithDefault(msg, 3, ""),
     messagesList: jspb.Message.toObjectList(msg.getMessagesList(),
     proto.mail.Message.toObject, includeInstance),
     metadata: (f = msg.getMetadata()) && github_com_oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
@@ -1862,15 +1891,11 @@ proto.mail.UserMessageBox.deserializeBinaryFromReader = function(msg, reader) {
       msg.setUserId(value);
       break;
     case 3:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTo(value);
-      break;
-    case 4:
       var value = new proto.mail.Message;
       reader.readMessage(value,proto.mail.Message.deserializeBinaryFromReader);
       msg.addMessages(value);
       break;
-    case 5:
+    case 4:
       var value = new github_com_oojob_protobuf_metadata_pb.Metadata;
       reader.readMessage(value,github_com_oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
       msg.setMetadata(value);
@@ -1918,17 +1943,10 @@ proto.mail.UserMessageBox.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getTo();
-  if (f.length > 0) {
-    writer.writeString(
-      3,
-      f
-    );
-  }
   f = message.getMessagesList();
   if (f.length > 0) {
     writer.writeRepeatedMessage(
-      4,
+      3,
       f,
       proto.mail.Message.serializeBinaryToWriter
     );
@@ -1936,7 +1954,7 @@ proto.mail.UserMessageBox.serializeBinaryToWriter = function(message, writer) {
   f = message.getMetadata();
   if (f != null) {
     writer.writeMessage(
-      5,
+      4,
       f,
       github_com_oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
     );
@@ -1981,30 +1999,12 @@ proto.mail.UserMessageBox.prototype.setUserId = function(value) {
 
 
 /**
- * optional string to = 3;
- * @return {string}
- */
-proto.mail.UserMessageBox.prototype.getTo = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.mail.UserMessageBox} returns this
- */
-proto.mail.UserMessageBox.prototype.setTo = function(value) {
-  return jspb.Message.setProto3StringField(this, 3, value);
-};
-
-
-/**
- * repeated Message messages = 4;
+ * repeated Message messages = 3;
  * @return {!Array<!proto.mail.Message>}
  */
 proto.mail.UserMessageBox.prototype.getMessagesList = function() {
   return /** @type{!Array<!proto.mail.Message>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.mail.Message, 4));
+    jspb.Message.getRepeatedWrapperField(this, proto.mail.Message, 3));
 };
 
 
@@ -2013,7 +2013,7 @@ proto.mail.UserMessageBox.prototype.getMessagesList = function() {
  * @return {!proto.mail.UserMessageBox} returns this
 */
 proto.mail.UserMessageBox.prototype.setMessagesList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 4, value);
+  return jspb.Message.setRepeatedWrapperField(this, 3, value);
 };
 
 
@@ -2023,7 +2023,7 @@ proto.mail.UserMessageBox.prototype.setMessagesList = function(value) {
  * @return {!proto.mail.Message}
  */
 proto.mail.UserMessageBox.prototype.addMessages = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 4, opt_value, proto.mail.Message, opt_index);
+  return jspb.Message.addToRepeatedWrapperField(this, 3, opt_value, proto.mail.Message, opt_index);
 };
 
 
@@ -2037,12 +2037,12 @@ proto.mail.UserMessageBox.prototype.clearMessagesList = function() {
 
 
 /**
- * optional github.com.oojob.protobuf.Metadata metadata = 5;
+ * optional github.com.oojob.protobuf.Metadata metadata = 4;
  * @return {?proto.github.com.oojob.protobuf.Metadata}
  */
 proto.mail.UserMessageBox.prototype.getMetadata = function() {
   return /** @type{?proto.github.com.oojob.protobuf.Metadata} */ (
-    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_metadata_pb.Metadata, 5));
+    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_metadata_pb.Metadata, 4));
 };
 
 
@@ -2051,7 +2051,7 @@ proto.mail.UserMessageBox.prototype.getMetadata = function() {
  * @return {!proto.mail.UserMessageBox} returns this
 */
 proto.mail.UserMessageBox.prototype.setMetadata = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -2069,7 +2069,7 @@ proto.mail.UserMessageBox.prototype.clearMetadata = function() {
  * @return {boolean}
  */
 proto.mail.UserMessageBox.prototype.hasMetadata = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
