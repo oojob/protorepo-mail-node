@@ -414,6 +414,13 @@
                 </tr>
               
                 <tr>
+                  <td>name</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>name :- name for this template </p></td>
+                </tr>
+              
+                <tr>
                   <td>attributes</td>
                   <td><a href="#mail.MailTemplate.Attributes">MailTemplate.Attributes</a></td>
                   <td>repeated</td>
@@ -526,6 +533,23 @@
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p>mail_message :- mongodb generated ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>from</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq from :- from whose account the mail should be send.
+/ default&#39;s to: admin@oojob.io
+/ example values: abcapplied@gmail.com </p></td>
+                </tr>
+              
+                <tr>
+                  <td>to</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>MailReq to :- to whom the mail should be sent
+/ For Eaxmple: dododuck@gmail.com </p></td>
                 </tr>
               
                 <tr>
@@ -790,23 +814,6 @@
                 </tr>
               
                 <tr>
-                  <td>from</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>MailReq from :- from whose account the mail should be send.
-/ default&#39;s to: admin@oojob.io
-/ example values: abcapplied@gmail.com </p></td>
-                </tr>
-              
-                <tr>
-                  <td>to</td>
-                  <td><a href="#string">string</a></td>
-                  <td></td>
-                  <td><p>MailReq to :- to whom the mail should be sent
-/ For Eaxmple: dododuck@gmail.com </p></td>
-                </tr>
-              
-                <tr>
                   <td>subject</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
@@ -863,6 +870,13 @@
                   <td><p>UserMailBox Identifier :- help&#39;s us to represent an base entity
 / and identity uniquely
 / mail :- mongodb generated ID </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>user identification </p></td>
                 </tr>
               
                 <tr>

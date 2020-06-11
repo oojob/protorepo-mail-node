@@ -12,6 +12,9 @@ export class MailTemplate extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
+  getName(): string;
+  setName(value: string): void;
+
   clearAttributesList(): void;
   getAttributesList(): Array<MailTemplate.Attributes>;
   setAttributesList(value: Array<MailTemplate.Attributes>): void;
@@ -44,6 +47,7 @@ export class MailTemplate extends jspb.Message {
 export namespace MailTemplate {
   export type AsObject = {
     id: string,
+    name: string,
     attributesList: Array<MailTemplate.Attributes.AsObject>,
     primaryColor: string,
     secondaryColor: string,
@@ -123,6 +127,12 @@ export class Message extends jspb.Message {
   getId(): string;
   setId(value: string): void;
 
+  getFrom(): string;
+  setFrom(value: string): void;
+
+  getTo(): string;
+  setTo(value: string): void;
+
   getMessage(): string;
   setMessage(value: string): void;
 
@@ -154,6 +164,8 @@ export class Message extends jspb.Message {
 export namespace Message {
   export type AsObject = {
     id: string,
+    from: string,
+    to: string,
     message: string,
     attachments?: github_com_oojob_protobuf_system_pb.Attachment.AsObject,
     createdAt?: google_protobuf_timestamp_pb.Timestamp.AsObject,
@@ -164,12 +176,6 @@ export namespace Message {
 export class UserMailBox extends jspb.Message {
   getId(): string;
   setId(value: string): void;
-
-  getFrom(): string;
-  setFrom(value: string): void;
-
-  getTo(): string;
-  setTo(value: string): void;
 
   getSubject(): string;
   setSubject(value: string): void;
@@ -200,8 +206,6 @@ export class UserMailBox extends jspb.Message {
 export namespace UserMailBox {
   export type AsObject = {
     id: string,
-    from: string,
-    to: string,
     subject: string,
     messagesList: Array<Message.AsObject>,
     template: string,
@@ -212,6 +216,9 @@ export namespace UserMailBox {
 export class UserMessageBox extends jspb.Message {
   getId(): string;
   setId(value: string): void;
+
+  getUserId(): string;
+  setUserId(value: string): void;
 
   getTo(): string;
   setTo(value: string): void;
@@ -239,6 +246,7 @@ export class UserMessageBox extends jspb.Message {
 export namespace UserMessageBox {
   export type AsObject = {
     id: string,
+    userId: string,
     to: string,
     messagesList: Array<Message.AsObject>,
     metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
